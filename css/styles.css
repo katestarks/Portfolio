@@ -48,7 +48,7 @@ li {
 	padding: 20px;
 }
 .about {
-	padding: 0 5%;
+	padding: 7% 5% 7% 5%;
 	overflow: auto;
 	background-color: #B7B9BD;
 }
@@ -64,6 +64,48 @@ li {
 }
 .aboutContent1 {
 	margin: 0 5% 0 0;
+}
+.projects {
+	padding: 5% 5%;
+	background-color: #FFAB40;
+}
+.projectItems {
+	width: 30%;
+	height: 300px;
+	display: inline-block;
+	margin: 40px 25px 0 0;
+	vertical-align: top;
+	cursor: pointer;
+}
+.project1 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.project2 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.project3 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.project4 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.project5 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.project6 {
+	background-image: url("../IMG/coming-soon.jpg");
+	background-size: cover;
+	background-position: center;
 }
 
 
@@ -88,5 +130,8 @@ li {
 		display: block;
 		width: 100%;
 		margin: 0 auto 5% auto;
+	}
+	.projectItems {
+		
 	}
 }
