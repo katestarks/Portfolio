@@ -27,3 +27,21 @@ main {
 .heroPara {
 	font-size: 2rem;
 }
+nav{
+	position: sticky;
+	top: 0;
+	/*background-color: #B7B9BD;*/
+	overflow: auto;
+}
+ul {
+	float: right;
+	padding: 2% 5%;
+	color: #FF3F14;
+	font-weight: bold;
+}
+li {
+	list-style-type: none;
+	display: inline;
+	font-size: 2rem;
+	padding: 20px;
+}
