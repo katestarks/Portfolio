@@ -32,6 +32,8 @@ nav{
 	top: 0;
 	/*background-color: #B7B9BD;*/
 	overflow: auto;
+	background-color: #FFF;
+	z-index: 10;
 }
 ul {
 	float: right;
@@ -63,6 +65,8 @@ li {
 .aboutContent1 {
 	margin: 0 5% 0 0;
 }
+
+
 
 @media screen and (max-width: 800px) {
 	.hero {
