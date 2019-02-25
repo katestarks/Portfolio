@@ -38,7 +38,7 @@ nav{
 ul {
 	float: right;
 	padding: 2% 5%;
-	color: #CC0000;
+	color: #FFAC40;
 	font-weight: bold;
 }
 li {
@@ -46,6 +46,10 @@ li {
 	display: inline;
 	font-size: 2rem;
 	padding: 20px;
+}
+li:hover {
+	color: #FF6B33;
+	cursor: pointer;
 }
 .about {
 	padding: 7% 5% 7% 5%;
@@ -76,6 +80,7 @@ li {
 	margin: 40px 25px 0 0;
 	vertical-align: top;
 	cursor: pointer;
+	border: 5px solid black;
 }
 .project1 {
 	background-image: url("../IMG/coming-soon.jpg");
@@ -132,6 +137,6 @@ li {
 		margin: 0 auto 5% auto;
 	}
 	.projectItems {
-		
+
 	}
 }
