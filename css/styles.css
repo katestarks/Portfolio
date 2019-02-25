@@ -9,8 +9,21 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 500;
 }
-
 main {
 	height: 100vh;
 	background-color: #07C5F5;
+	color: #FFF600;
+}
+.hero {
+	margin: 0;
+	padding: 10%;
+	position: relative;
+	top: 25%;
+}
+.heroHeading {
+	font-size: 4rem;
+	margin: 0;
+}
+.heroPara {
+	font-size: 2rem;
 }
