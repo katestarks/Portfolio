@@ -36,7 +36,7 @@ nav{
 ul {
 	float: right;
 	padding: 2% 5%;
-	color: #FF3F14;
+	color: #CC0000;
 	font-weight: bold;
 }
 li {
@@ -65,5 +65,24 @@ li {
 }
 
 @media screen and (max-width: 800px) {
-	
+	.hero {
+		top: 50%;
+	}
+	.heroHeading {
+		font-size: 3rem;
+		margin: 0;
+	}
+	.heroPara {
+		font-size: 1rem;
+	}
+	ul {
+		float: left;
+		width: 100%;
+		text-align: center;
+	}
+	.aboutContent {
+		display: block;
+		width: 100%;
+		margin: 0 auto 5% auto;
+	}
 }
