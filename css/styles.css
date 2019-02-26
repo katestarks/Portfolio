@@ -42,6 +42,7 @@ main {
 
 nav{
 	position: sticky;
+	position :-webkit-sticky;
 	top: 0;
 	background-color: #FFF;
 	overflow: auto;
@@ -51,34 +52,34 @@ nav{
 ul {
 	float: right;
 	padding: 2% 5%;
-	color: #02C7A6;
 	font-weight: bold;
 }
 
-a {
+nav a {
 	text-decoration: none;
+	color: #02C7A6;
 }
 
-li {
+a:hover {
+	color: #FAC002;
+}
+
+nav li {
 	list-style-type: none;
 	display: inline;
 	font-size: 2rem;
 	padding: 20px;
 }
 
-li:hover {
-	color: #FAC002;
-	cursor: pointer;
-}
-
 .about {
-	padding: 7% 5% 7% 5%;
+	padding: 10% 5% 7% 5%;
 	overflow: auto;
 	background-color: #F5313E;
 }
 
 .about h1 {
 	color: #FFF;
+	width: 50%;
 }
 
 .aboutContent {
@@ -91,18 +92,29 @@ li:hover {
 	color: #FFF;
 }
 
+.aboutContent ul {
+	float: left;
+}
+
 .aboutContentLeft {
 	margin: 0 5% 0 0;
 }
 
+.aboutContentRight {
+	outline: solid 1px #FFFFFF;
+	margin: 0;
+}
+
+.contentQuote {
+	font-size: 3rem;
+	font-weight: bold;
+}
+
 .projects {
-	padding: 5% 5%;
+	padding: 10% 5% 7% 5%;
 	background-color: #FAC002;
 	width: 100%;
 	overflow: auto;
-}
-
-.projects h1 {
 	color: #02C7A6;
 }
 
@@ -112,10 +124,32 @@ li:hover {
 	float: left;
 	margin: 40px 25px 0 0;
 	vertical-align: top;
-	cursor: pointer;
 	border: 5px solid #02C7A6;
 	background-size: cover;
 	background-position: center;
+}
+
+.projectItems .cover {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	display: none;
+	text-align: center;
+}
+
+.projectItems:hover .cover {
+	background-color: rgba(255,255,255,0.8);
+	display: block;
+	float: left;
+	margin: 0 auto;
+	padding: 5%;
+	color: #000;
+}
+
+.projectItems:hover .cover a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
 }
 
 .project1 {
@@ -141,8 +175,6 @@ li:hover {
 .project6 {
 	background-image: url("../IMG/comingSoon.jpg");
 }
-
-
 
 @media screen and (max-width: 950px) {
 
@@ -170,16 +202,17 @@ li:hover {
 		height: 50px;
 	}
 
-	ul {
+	nav ul {
 		float: left;
 		width: 100%;
 		text-align: center;
-		Padding: 0;
+		padding: 0;
 	}
 
-	li {
+	nav li {
+		display: inline;
+		padding: 10px 20px;
 		font-size: 1.5rem;
-		padding: 0 20px;
 	}
 
 	.aboutContent {
@@ -193,4 +226,31 @@ li:hover {
 		margin: 2% auto;
 	}
 
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ CSS here */
+
+	nav {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 10%;
+	}
+
+	nav ul {
+		padding: 0 5%;
+	}
+
+	nav li {
+		padding: 0 20px;
+	}
+
+	main p {
+		font-weight: bold;
+	}
+
+	.hero {
+		top: 5%;
+	}
 }
