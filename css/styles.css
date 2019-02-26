@@ -1,25 +1,36 @@
 * {
 	box-sizing: border-box;
 }
+
 body {
 	margin: 0;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 300;
 }
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 500;
 }
+
 main {
 	height: 100vh;
 	background-color: #07C5F5;
 	color: #FFF600;
 }
+
 .hero {
 	margin: 0;
 	padding: 10%;
 	position: relative;
 	top: 25%;
 }
+
+.hero div {
+	width: 85px;
+	height: 85px;
+	margin: 5% auto;
+}
+
 .heroHeading {
 	font-size: 4rem;
 	margin: 0;
@@ -27,6 +38,12 @@ main {
 .heroPara {
 	font-size: 2rem;
 }
+
+.heroArrow {
+	height: 100%;
+	margin: 0 auto;
+}
+
 nav{
 	position: sticky;
 	top: 0;
@@ -35,27 +52,32 @@ nav{
 	background-color: #FFF;
 	z-index: 10;
 }
+
 ul {
 	float: right;
 	padding: 2% 5%;
 	color: #FFAC40;
 	font-weight: bold;
 }
+
 li {
 	list-style-type: none;
 	display: inline;
 	font-size: 2rem;
 	padding: 20px;
 }
+
 li:hover {
 	color: #FF6B33;
 	cursor: pointer;
 }
+
 .about {
 	padding: 7% 5% 7% 5%;
 	overflow: auto;
 	background-color: #B7B9BD;
 }
+
 .aboutContent {
 	display: inline-block;
 	width: 47.5%;
@@ -66,13 +88,20 @@ li:hover {
 	color: #CC0000;
 	h1: #CC0000;
 }
+
 .aboutContent1 {
 	margin: 0 5% 0 0;
 }
+
+.about h1 {
+	padding: 15% 0 0 0;
+}
+
 .projects {
 	padding: 5% 5%;
 	background-color: #FFAB40;
 }
+
 .projectItems {
 	width: 30%;
 	height: 300px;
@@ -81,39 +110,33 @@ li:hover {
 	vertical-align: top;
 	cursor: pointer;
 	border: 5px solid black;
+	background-size: cover;
+	background-position: center;
 }
+
 .project1 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
+
 .project2 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
+
 .project3 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
+
 .project4 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
+
 .project5 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
+
 .project6 {
 	background-image: url("../IMG/coming-soon.jpg");
-	background-size: cover;
-	background-position: center;
 }
-
-
 
 @media screen and (max-width: 800px) {
 	.hero {
@@ -126,16 +149,23 @@ li:hover {
 	.heroPara {
 		font-size: 1rem;
 	}
+	.hero div {
+		height: 50px;
+		height: 50px;
+	}
+
 	ul {
 		float: left;
 		width: 100%;
 		text-align: center;
 	}
+
 	.aboutContent {
 		display: block;
 		width: 100%;
 		margin: 0 auto 5% auto;
 	}
+
 	.projectItems {
 
 	}
