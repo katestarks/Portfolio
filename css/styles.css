@@ -37,7 +37,7 @@ main {
 
 .heroArrow {
 	height: 100%;
-	margin: 0 auto;
+	margin: 5% auto;
 }
 
 nav{
@@ -87,19 +87,25 @@ li:hover {
 	color: #FFF;
 }
 
-.aboutContent1 {
+.aboutContentLeft {
 	margin: 0 5% 0 0;
 }
 
 .projects {
 	padding: 5% 5%;
 	background-color: #FAC002;
+	width: 100%;
+	overflow: auto;
+}
+
+.projects h1 {
+	color: #02C7A6;
 }
 
 .projectItems {
 	width: 30%;
 	height: 300px;
-	display: inline-block;
+	float: left;
 	margin: 40px 25px 0 0;
 	vertical-align: top;
 	cursor: pointer;
@@ -109,7 +115,7 @@ li:hover {
 }
 
 .project1 {
-	background-image: url("../IMG/coming-soon.jpg");
+	background-image: url("../IMG/Pilotshop.png");
 }
 
 .project2 {
@@ -132,19 +138,31 @@ li:hover {
 	background-image: url("../IMG/coming-soon.jpg");
 }
 
+
+
+@media screen and (max-width: 950px) {
+
+	.projectItems {
+		width: 45%;
+		margin: 40px 15px 0 15px;
+	}
+}
+
 @media screen and (max-width: 800px) {
 	.hero {
 		top: 50%;
 	}
+
 	.heroHeading {
 		font-size: 3rem;
 		margin: 0;
 	}
+
 	.heroPara {
 		font-size: 1rem;
 	}
+
 	.hero div {
-		height: 50px;
 		height: 50px;
 	}
 
@@ -159,7 +177,6 @@ li:hover {
 		font-size: 1.5rem;
 		padding: 0 20px;
 	}
-}
 
 	.aboutContent {
 		display: block;
@@ -168,5 +185,8 @@ li:hover {
 	}
 
 	.projectItems {
-
+		width: 90%;
+		margin: 2% auto;
 	}
+
+}
