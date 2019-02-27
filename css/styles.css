@@ -65,7 +65,6 @@ a:hover {
 }
 
 nav li {
-	list-style-type: none;
 	display: inline;
 	font-size: 2rem;
 	padding: 20px;
@@ -80,9 +79,7 @@ nav li {
 }
 
 .about {
-	/*padding: 10% 5% 7% 5%;*/
 	overflow: auto;
-	/*background-color: #F5313E;*/
 }
 
 .about h1 {
@@ -124,7 +121,6 @@ nav li {
 .projects {
 	padding: 10% 5% 7% 5%;
 	background-color: #FAC002;
-	width: 100%;
 	overflow: auto;
 	color: #02C7A6;
 }
