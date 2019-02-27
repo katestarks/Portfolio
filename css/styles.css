@@ -102,21 +102,32 @@ nav li {
 
 .aboutContent ul {
 	float: left;
+	list-style-type: square;
 }
 
 .aboutContentLeft {
-	/*margin: 0 5% 0 0;*/
 	background-color: #F5313E;
 	padding: 10% 5% 7% 5%;
 	width: 65%;
 }
 
 .aboutContentRight {
-	/*outline: solid 1px #FFFFFF;*/
 	margin: 0;
 	color: #F5313E;
-	padding: 10% 5% 7% 5%;
-	width: 30%;
+	padding: 10% 5% 0 5%;
+	width: 35%;
+}
+
+.aboutContentRight p {
+	color: #FFFFFF;
+	background-color: #F5313E;
+	font-size: 1.25rem;
+	padding: 5px;
+	margin: 0;
+}
+
+.aboutContent li {
+	padding: 6px 0;
 }
 
 .contentQuote {
