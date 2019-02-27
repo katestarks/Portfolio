@@ -1,0 +1,268 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 300;
+}
+
+main {
+	height: 100vh;
+	background-color: #02C7A6;
+	color: #FAC002;
+}
+
+.hero {
+	margin: 0;
+	padding: 10%;
+	position: relative;
+	top: 20%;
+}
+
+.hero div {
+	width: 85px;
+	height: 85px;
+	margin: 5% auto;
+}
+
+.heroHeading {
+	font-size: 4rem;
+	margin: 0;
+}
+.heroPara {
+	font-size: 2rem;
+}
+
+.heroArrow {
+	height: 100%;
+	margin: 0 auto;
+}
+
+nav{
+	position: sticky;
+	position :-webkit-sticky;
+	top: 0;
+	background-color: #FFF;
+	overflow: auto;
+	z-index: 10;
+}
+
+nav ul {
+	float: right;
+	padding: 2% 5%;
+	font-weight: bold;
+}
+
+nav a {
+	text-decoration: none;
+	color: #02C7A6;
+}
+
+a:hover {
+	color: #FAC002;
+}
+
+nav li {
+	display: inline;
+	font-size: 2rem;
+	padding: 20px;
+}
+
+.navColor {
+	width: 100%;
+	height: 10%;
+	background-color: #02C7A6;
+	position: absolute;
+	bottom: 0;
+}
+
+.about {
+	overflow: auto;
+}
+
+.about h1 {
+	color: #FFF;
+}
+
+.aboutContent {
+	float: left;
+}
+
+.aboutContentLeft {
+	background-color: #F5313E;
+	padding: 10% 5% 7% 5%;
+	width: 65%;
+	text-align: justify;
+	color: #FFF;
+}
+
+.aboutContentRight {
+	color: #F5313E;
+	padding: 11% 5% 0 5%;
+	width: 35%;
+}
+
+.aboutContent ul {
+	float: left;
+	list-style-type: square;
+}
+
+.aboutContent li {
+	padding: 6px 0;
+}
+
+.contentQuote {
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+.projects {
+	padding: 10% 5% 7% 5%;
+	background-color: #FAC002;
+	overflow: auto;
+	color: #02C7A6;
+}
+
+.projectItems {
+	width: 30%;
+	height: 300px;
+	float: left;
+	margin: 40px 25px 0 0;
+	vertical-align: top;
+	border: 5px solid #02C7A6;
+	background-size: cover;
+	background-position: center;
+}
+
+.projectItems .cover {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	display: none;
+	text-align: center;
+}
+
+.projectItems:hover .cover {
+	background-color: rgba(255,255,255,0.8);
+	display: block;
+	float: left;
+	margin: 0 auto;
+	padding: 5%;
+	color: #000;
+}
+
+.projectItems:hover .cover a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.project1 {
+	background-image: url("../IMG/Pilotshop.png");
+}
+
+.project2 {
+	background-image: url("../IMG/MaydenAcademyLogo.jpg");
+}
+
+.project3 {
+	background-image: url("../IMG/comingSoon.jpg");
+}
+
+.project4 {
+	background-image: url("../IMG/comingSoon.jpg");
+}
+
+.project5 {
+	background-image: url("../IMG/comingSoon.jpg");
+}
+
+.project6 {
+	background-image: url("../IMG/comingSoon.jpg");
+}
+
+@media screen and (max-width: 950px) {
+
+	.projectItems {
+		width: 45%;
+		margin: 40px 15px 0 15px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.hero {
+		top: 50%;
+	}
+
+	.heroHeading {
+		font-size: 3rem;
+		margin: 0;
+	}
+
+	.heroPara {
+		font-size: 1rem;
+	}
+
+	.hero div {
+		height: 50px;
+	}
+
+	nav ul {
+		float: left;
+		width: 100%;
+		text-align: center;
+		padding: 0;
+	}
+
+	nav li {
+		display: inline;
+		padding: 10px 20px;
+		font-size: 1.5rem;
+	}
+
+	.aboutContent {
+		display: block;
+		width: 100%;
+		margin: 0 auto 5% auto;
+	}
+
+	.aboutContentRight {
+		padding: 5%;
+	}
+
+	.projectItems {
+		width: 90%;
+		margin: 2% auto;
+	}
+
+
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ CSS here */
+
+	nav {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 10%;
+	}
+
+	nav ul {
+		padding: 0 5%;
+	}
+
+	nav li {
+		padding: 0 20px;
+	}
+
+	main p {
+		font-weight: bold;
+	}
+
+	.hero {
+		top: 5%;
+	}
+}
