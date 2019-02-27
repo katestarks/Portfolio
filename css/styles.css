@@ -200,9 +200,8 @@ nav li {
 }
 
 .contactIcon {
-	height: 50px;
-	margin: 0 auto;
-	padding: 0 10%;
+	width: 60px;
+	margin: 0 60px;
 }
 
 .contactMe p {
@@ -271,7 +270,10 @@ footer {
 		margin: 2% auto;
 	}
 
-
+	.contactIcon {
+		width: 60px;
+		margin: 0 30px;
+	}
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
