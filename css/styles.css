@@ -49,7 +49,7 @@ nav{
 	z-index: 10;
 }
 
-ul {
+nav ul {
 	float: right;
 	padding: 2% 5%;
 	font-weight: bold;
@@ -87,43 +87,29 @@ nav li {
 
 .about h1 {
 	color: #FFF;
-	width: 50%;
 }
 
 .aboutContent {
-	display: inline-block;
-	/*width: 47.5%;*/
-	margin: 0 auto;
-	position: relative;
 	float: left;
-	text-align: justify;
-	color: #FFF;
-}
-
-.aboutContent ul {
-	float: left;
-	list-style-type: square;
 }
 
 .aboutContentLeft {
 	background-color: #F5313E;
 	padding: 10% 5% 7% 5%;
 	width: 65%;
+	text-align: justify;
+	color: #FFF;
 }
 
 .aboutContentRight {
-	margin: 0;
 	color: #F5313E;
-	padding: 10% 5% 0 5%;
+	padding: 11% 5% 0 5%;
 	width: 35%;
 }
 
-.aboutContentRight p {
-	color: #FFFFFF;
-	background-color: #F5313E;
-	font-size: 1.25rem;
-	padding: 5px;
-	margin: 0;
+.aboutContent ul {
+	float: left;
+	list-style-type: square;
 }
 
 .aboutContent li {
@@ -246,10 +232,15 @@ nav li {
 		margin: 0 auto 5% auto;
 	}
 
+	.aboutContentRight {
+		padding: 5%;
+	}
+
 	.projectItems {
 		width: 90%;
 		margin: 2% auto;
 	}
+
 
 }
 
