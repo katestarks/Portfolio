@@ -3,7 +3,6 @@
 }
 
 body {
-	margin: 0;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 300;
 }
@@ -15,10 +14,7 @@ main {
 }
 
 .hero {
-	margin: 0;
-	padding: 10%;
-	position: relative;
-	top: 20%;
+	padding: 25% 10% 10% 10%;
 }
 
 .hero div {
@@ -27,11 +23,11 @@ main {
 	margin: 5% auto;
 }
 
-.heroHeading {
+.hero h1 {
 	font-size: 4rem;
 	margin: 0;
 }
-.heroPara {
+.hero p {
 	font-size: 2rem;
 }
 
@@ -44,7 +40,7 @@ nav{
 	position: sticky;
 	position :-webkit-sticky;
 	top: 0;
-	background-color: #FFF;
+	background-color: #FFFFFF;
 	overflow: auto;
 	z-index: 10;
 }
@@ -83,10 +79,10 @@ nav li {
 }
 
 .about h1 {
-	color: #FFF;
+	color: #FFFFFF;
 }
 
-.aboutContent {
+.about div {
 	float: left;
 }
 
@@ -95,7 +91,7 @@ nav li {
 	padding: 10% 5% 10% 5%;
 	width: 65%;
 	text-align: justify;
-	color: #FFF;
+	color: #FFFFFF;
 }
 
 .contentEmphasisLine {
@@ -106,14 +102,14 @@ nav li {
 	color: #F5313E;
 	padding: 11% 5% 0 5%;
 	width: 35%;
+	overflow: auto;
 }
 
-.aboutContent ul {
+.about ul {
 	float: left;
-	list-style-type: square;
 }
 
-.aboutContent li {
+.about li {
 	padding: 6px 0;
 }
 
@@ -129,18 +125,17 @@ nav li {
 	color: #02C7A6;
 }
 
-.projectItems {
+.projects div {
 	width: 30%;
 	height: 300px;
 	float: left;
 	margin: 40px 25px 0 0;
-	vertical-align: top;
 	border: 5px solid #02C7A6;
 	background-size: cover;
 	background-position: center;
 }
 
-.projectItems .cover {
+.projects div .cover {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
@@ -148,16 +143,16 @@ nav li {
 	text-align: center;
 }
 
-.projectItems:hover .cover {
+.projects div:hover .cover {
 	background-color: rgba(255,255,255,0.8);
 	display: block;
 	float: left;
 	margin: 0 auto;
-	padding: 5%;
+	padding: 2%;
 	color: #000;
 }
 
-.projectItems:hover .cover a {
+.projects div:hover .cover a {
 	text-decoration: none;
 	color: #000;
 	text-transform: uppercase;
@@ -198,12 +193,12 @@ nav li {
 	text-align: center;
 }
 
-.contactIcon {
+.contactMe div img {
 	width: 60px;
 }
 
 .contactMe p {
-	color: #FFF;
+	color: #FFFFFF;
 	font-size: 1.25rem;
 	text-align: justify;
 }
@@ -218,9 +213,7 @@ footer {
 	background-color: #02C7A6;
 }
 
-
 @media screen and (max-width: 950px) {
-
 	.projectItems {
 		width: 45%;
 		margin: 40px 15px 0 15px;
@@ -229,15 +222,15 @@ footer {
 
 @media screen and (max-width: 800px) {
 	.hero {
-		top: 50%;
+		padding: 50% 10% 10% 10%;
 	}
 
-	.heroHeading {
+	.hero h1 {
 		font-size: 3rem;
 		margin: 0;
 	}
 
-	.heroPara {
+	.hero p {
 		font-size: 1rem;
 	}
 
@@ -258,7 +251,7 @@ footer {
 		font-size: 1.5rem;
 	}
 
-	.aboutContent {
+	.about div {
 		display: block;
 		width: 100%;
 		margin: 0 auto 5% auto;
@@ -268,7 +261,7 @@ footer {
 		padding: 5%;
 	}
 
-	.projectItems {
+	.projects div {
 		width: 90%;
 		margin: 2% auto;
 	}
@@ -280,7 +273,6 @@ footer {
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 	/* IE10+ CSS here */
-
 	nav {
 		position: fixed;
 		top: 0;
