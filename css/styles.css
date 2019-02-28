@@ -200,13 +200,17 @@ nav li {
 
 .contactIcon {
 	width: 60px;
-	margin: 0 60px;
 }
 
 .contactMe p {
 	color: #FFF;
 	font-size: 1.25rem;
 	text-align: justify;
+}
+
+.contactMe a {
+	display: inline-block;
+	margin: 0 60px;
 }
 
 footer {
