@@ -92,10 +92,14 @@ nav li {
 
 .aboutContentLeft {
 	background-color: #F5313E;
-	padding: 10% 5% 7% 5%;
+	padding: 10% 5% 10% 5%;
 	width: 65%;
 	text-align: justify;
 	color: #FFF;
+}
+
+.contentEmphasisLine {
+	text-align: right;
 }
 
 .aboutContentRight {
@@ -114,7 +118,7 @@ nav li {
 }
 
 .contentQuote {
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: bold;
 }
 
@@ -183,6 +187,38 @@ nav li {
 	background-image: url("../IMG/comingSoon.jpg");
 }
 
+.contactMe {
+	background-color: #484349;
+	padding: 5% 5% 2% 5%;
+	color: #F5313E;
+}
+
+.contactMe div {
+	padding: 5% 0 5% 0;
+	text-align: center;
+}
+
+.contactIcon {
+	width: 60px;
+}
+
+.contactMe p {
+	color: #FFF;
+	font-size: 1.25rem;
+	text-align: justify;
+}
+
+.contactMe a {
+	display: inline-block;
+	margin: 0 60px;
+}
+
+footer {
+	height: 50px;
+	background-color: #02C7A6;
+}
+
+
 @media screen and (max-width: 950px) {
 
 	.projectItems {
@@ -237,7 +273,10 @@ nav li {
 		margin: 2% auto;
 	}
 
-
+	.contactIcon {
+		width: 60px;
+		margin: 0 30px;
+	}
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
