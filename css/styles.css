@@ -273,8 +273,7 @@ footer {
 		margin: 2% auto;
 	}
 
-	.contactIcon {
-		width: 60px;
+	.contactMe a {
 		margin: 0 30px;
 	}
 }
