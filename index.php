@@ -4,7 +4,6 @@
     <title>Kate Starks</title>
     <link rel='stylesheet' type='text/css' href='css/normalize.css'/>
     <link href="https://fonts.googleapis.com/css?family=Nova+Square|Open+Sans" rel="stylesheet">
-
     <link rel='stylesheet' type='text/css' href='css/styles.css'/>
 </head>
 
