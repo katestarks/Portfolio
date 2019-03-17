@@ -3,40 +3,43 @@
 <head>
     <title>Kate Starks</title>
     <link rel='stylesheet' type='text/css' href='css/normalize.css'/>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Square|Open+Sans" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='css/styles.css'/>
 </head>
 
 <body>
-    <main class="hero">
+    <main>
+        <div class="hero">
         <h1>Kate Starks {</h1>
         <p>Full Stack Developer</p>
         <p>Positive | Resilient | Motivated</p>
         <h1>}</h1>
-        <div><a href="#about"><img class="heroArrow" src="IMG/heroArrow.png"></a></div>
+        <a href="#about"><img class="heroArrow" src="IMG/heroArrow.png"></a>
+        </div>
     </main>
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact me</a></li>
+            <li class="aboutNav"><h1><a href="#about">About</a></h1></li>
+            <li class="projectsNav"><h1><a href="#projects">Projects</a></h1></li>
+            <li class="contactNav"><h1><a href="#contact">Contact me</a></h1></li>
         </ul>
-        <div class="navColor"></div>
     </nav>
     <section id="about" class="about">
+        <img src="IMG/about_illustration.png" class="aboutImage">
         <div class="aboutContentLeft">
             <h1>" Welcome to my portfolio,</h1>
             <p>Hi, I’m Kate, a full stack developer in training. Learning to code is a career change for me. I was looking for a tangible, vocational skill to complement the ‘soft’ skills I’ve picked up. Someone told me that once you know how to code, the only limit is your imagination.</p>
             <p class="contentEmphasisLine">I was captivated by that idea and, now that I’m learning, I’m hooked on the process.<span class="contentQuote">"</span></p>
         </div>
         <div class="aboutContentRight">
-            <h3>Here are some other useful skills I've learnt along the way:</h3>
+            <h4 class="skillsListLineOne">Here are some other useful</h4>
+            <h4>skills I've learnt along the way:</h4>
             <ul>
-                <li>Team working</li>
-                <li>Communication</li>
-                <li>Organisation</li>
-                <li>Influencing</li>
-                <li>Emotional intelligence</li>
+                <li class="teamWork">Team working</li>
+                <li class="communication">Communication</li>
+                <li class="organisation">Organisation</li>
+                <li class="influencing">Influencing</li>
+                <li class="emotionalIntelligence">Emotional intelligence</li>
             </ul>
         </div>
     </section>
