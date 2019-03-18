@@ -94,10 +94,6 @@ nav li {
 	color: #FFFFFF;
 }
 
-.contentEmphasisLine {
-	text-align: right;
-}
-
 .aboutContentRight {
 	color: #F5313E;
 	padding: 11% 5% 0 5%;
@@ -111,11 +107,6 @@ nav li {
 
 .about li {
 	padding: 6px 0;
-}
-
-.contentQuote {
-	font-size: 2rem;
-	font-weight: bold;
 }
 
 .projects {

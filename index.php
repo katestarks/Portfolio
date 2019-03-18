@@ -30,8 +30,9 @@ require_once "php/dbConnection.php"
     <section id="about" class="about">
         <div class="aboutContentLeft">
             <h1>" Welcome to my portfolio,</h1>
-            <p>Hi, I’m Kate, a full stack developer in training. Learning to code is a career change for me. I was looking for a tangible, vocational skill to complement the ‘soft’ skills I’ve picked up. Someone told me that once you know how to code, the only limit is your imagination.</p>
-            <p class="contentEmphasisLine">I was captivated by that idea and, now that I’m learning, I’m hooked on the process.<span class="contentQuote">"</span></p>
+            <p>
+
+            </p>
         </div>
         <div class="aboutContentRight">
             <h3>Here are some other useful skills I've learnt along the way:</h3>
