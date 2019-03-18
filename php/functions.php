@@ -25,11 +25,11 @@ function getAboutMeText(PDO $db) : array {
  */
 function displayAboutMeText(array $aboutMeTexts) : string {
     $result = "";
-    if ($aboutMeTexts === NULL || is_array($aboutMeTexts==false)) {
-        $result .= "<p>Come back soon to find out more about me</p>";
-    } else {
-        foreach ($aboutMeTexts as $aboutMeText) {
+    foreach ($aboutMeTexts as $aboutMeText) {
+        if(array_key_exists('content', $aboutMeText)){
             $result .= "<p>" . $aboutMeText['content'] . "</p>";
+        } else {
+            $result .= "";
         }
     }
     return $result;
@@ -58,7 +58,11 @@ function getAboutMeQuote(PDO $db) : array {
 function displayAboutMeQuote(array $aboutMeQuotes) : string {
     $result="";
     foreach ($aboutMeQuotes as $aboutMeQuote) {
-        $result .= "<p class='contentEmphasisLine'>" . $aboutMeQuote['content'] . "<span class='contentQuote'>\"</span></p>";
+        if(array_key_exists('content', $aboutMeQuote)) {
+            $result .= "<p class='contentEmphasisLine'>" . $aboutMeQuote['content'] . "<span class='contentQuote'>\"</span></p>";
+         } else {
+            $result .="";
+        }
     }
     return $result;
 }

@@ -6,21 +6,49 @@ use PHPUnit\Framework\Testcase;
 
 class StackTest extends Testcase
 {
-    public function testDisplayAboutMeTextSuccess () {
-        $expected = 'test data';
-        $aboutMeText = [['content'=>'test data']];
+    public function testDisplayAboutMeTextSuccess()
+    {
+        $expected = '<p>test data</p>';
+        $aboutMeText = [['content' => 'test data']];
         $case = displayAboutMeText($aboutMeText);
         $this->assertEquals($expected, $case);
     }
-    public function testDisplayAboutMeTextFailure () {
-        $expected = "<p>Come back soon to find out more about me</p>";
-        $aboutMeText = NULL;
-        $case = displayAboutMeText($aboutMeText);
-        $this->assertEquals ($expected, $case);
-    }
-    public function testDisplayAboutMeTextMalform () {
-        $expected = "<p>Come back soon to find out more about me</p>";
-        $aboutMeText = 'three';
+
+    public function testDisplayAboutMeTextFailure()
+    {
+        $expected = "";
+        $aboutMeText = [['thing'=>'words']];
         $case = displayAboutMeText($aboutMeText);
         $this->assertEquals($expected, $case);
     }
+
+    public function testDisplayAboutMeTextMalform()
+    {
+        $aboutMeText = 'string';
+        $this->expectException(TypeError::class);
+        displayAboutMeText($aboutMeText);
+    }
+    public function testDisplayAboutMeQuoteSuccess()
+    {
+        $expected = '<p>test data</p>';
+        $aboutMeText = [['content' => 'test data']];
+        $case = displayAboutMeText($aboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDisplayAboutMeQuoteFailure()
+    {
+        $expected = "";
+        $aboutMeText = [['thing'=>'words']];
+        $case = displayAboutMeText($aboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDisplayAboutMeQuoteMalform()
+    {
+        $aboutMeText = 'string';
+        $this->expectException(TypeError::class);
+        displayAboutMeText($aboutMeText);
+    }
+}
+    ?>
