@@ -1,8 +1,8 @@
 <?php
-
-require_once 'dbConnection.php';
-
-?>
+//
+//require_once 'dbConnection.php';
+//
+//?>
 
 <html lang="en">
 
@@ -18,12 +18,13 @@ require_once 'dbConnection.php';
     <section>
         <h2>About Me</h2>
         <form method="post">
-            <label for="addAboutMe">Add new information or additional paragraphs here:</label>
-            <input type="text" name="addAboutMe">
-            <input type="submit">
+            <label for="addAboutMe"><h5>Add new information or additional paragraphs here:</h5></label>
+            <textarea name="addAboutMeText" form="addAboutMe"></textarea>
+            <input type="submit" value="Add text">
         </form>
+
         <form method="post">
-            <label for="editAboutMe">Edit text:</label>
+            <label for="editAboutMe"><h5>Edit text:</h5></label>
             <select type=""
         </form>
     </section>
