@@ -1,5 +1,10 @@
 <?php
-require_once "php/dbConnection.php"
+require_once "php/dbConnection.php";
+require_once "php/functions.php";
+
+$db = getdbConnection();
+$aboutMeText = getAboutMeText($db);
+$displayAboutMeText = displayAboutMeText($aboutMeText);
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +35,9 @@ require_once "php/dbConnection.php"
     <section id="about" class="about">
         <div class="aboutContentLeft">
             <h1>" Welcome to my portfolio,</h1>
-            <p>
-
-            </p>
+            <?php
+            echo $displayAboutMeText;
+            ?>
         </div>
         <div class="aboutContentRight">
             <h3>Here are some other useful skills I've learnt along the way:</h3>
