@@ -5,6 +5,8 @@ require_once "php/functions.php";
 $db = getdbConnection();
 $aboutMeText = getAboutMeText($db);
 $displayAboutMeText = displayAboutMeText($aboutMeText);
+$aboutMeQuote = getAboutMeQuote($db);
+$displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +39,7 @@ $displayAboutMeText = displayAboutMeText($aboutMeText);
             <h1>" Welcome to my portfolio,</h1>
             <?php
             echo $displayAboutMeText;
+            echo $displayAboutMeQuote;
             ?>
         </div>
         <div class="aboutContentRight">
