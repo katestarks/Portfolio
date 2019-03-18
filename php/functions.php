@@ -24,9 +24,13 @@ function getAboutMeText(PDO $db) : array {
  * returns string of the array items concatenated with html
  */
 function displayAboutMeText(array $aboutMeTexts) : string {
-    $result="";
-    foreach ($aboutMeTexts as $aboutMeText) {
-        $result .= "<p>" . $aboutMeText['content'] . "</p>";
+    $result = "";
+    if ($aboutMeTexts === NULL || is_array($aboutMeTexts==false)) {
+        $result .= "<p>Come back soon to find out more about me</p>";
+    } else {
+        foreach ($aboutMeTexts as $aboutMeText) {
+            $result .= "<p>" . $aboutMeText['content'] . "</p>";
+        }
     }
     return $result;
 }
