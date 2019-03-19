@@ -67,4 +67,10 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
     return $result;
 }
 
+function addNewText($newText) {
+    $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:newText)");
+    $query->bindParam(':newText', $newText);
+    $query->execute();
+}
+
 ?>
