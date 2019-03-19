@@ -133,8 +133,19 @@ function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
  *
  * @return string of content from the array
  */
-function displayAboutTextToEdit(array $aboutTextToEdit) : string {
-    return $aboutTextToEdit[0]["content"];
-}
+//function displayAboutTextToEdit(array $aboutTextToEdit) : string {
+//    return $aboutTextToEdit[0]["content"];
+//}
 
+function displayAboutTextToEdit(array $aboutTextToEdits) : string {
+    $result="";
+    foreach ($aboutTextToEdits as $aboutTextToEdit) {
+        if(array_key_exists('content', $aboutTextToEdit)) {
+            $result .= $aboutTextToEdit['content'];
+        } else {
+            $result .="";
+        }
+    }
+    return $result;
+}
 ?>

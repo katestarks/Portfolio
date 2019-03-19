@@ -52,17 +52,6 @@ class StackTest extends Testcase
         displayAboutMeQuote($aboutMeQuote);
     }
 
-//    public function testEditAboutMeTextAndQuoteSuccess()
-//    {
-//        $expected = "<option value=1>'test data'</option>";
-//        $aboutMeTextAndQuote = [];
-//        $aboutMeTextAndQuote['id'] = '1';
-//        $aboutMeTextAndQuote['content'] = 'test data';
-//        $array[0] = $aboutMeTextAndQuote;
-//        $case = editAboutMeTextAndQuote($aboutMeTextAndQuote);
-//        $this->assertEquals($expected, $case);
-//    }
-
     public function testEditAboutMeTextAndQuoteSuccess()
     {
         $expected = "<option value=1>test data</option>";
@@ -84,6 +73,29 @@ class StackTest extends Testcase
         $aboutMeTextAndQuote = 'string';
         $this->expectException(TypeError::class);
         editAboutMeTextAndQuote($aboutMeTextAndQuote);
+    }
+
+    public function testDisplayAboutTextToEditSuccess()
+    {
+        $expected = 'test data';
+        $aboutTextToEdit = [['id'=>1, 'content'=>'test data']];
+        $case = displayAboutTextToEdit($aboutTextToEdit);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDisplayAboutTextToEditFailure()
+    {
+        $expected = "";
+        $aboutTextToEdit = [['thing'=>'words']];
+        $case = displayAboutTextToEdit($aboutTextToEdit);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDisplayAboutTextToEditMalform()
+    {
+        $aboutTextToEdit = 'string';
+        $this->expectException(TypeError::class);
+        displayAboutTextToEdit($aboutTextToEdit);
     }
 }
     ?>
