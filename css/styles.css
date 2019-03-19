@@ -96,6 +96,8 @@ nav li {
 
 .contentEmphasisLine {
 	text-align: right;
+	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .aboutContentRight {
@@ -111,11 +113,6 @@ nav li {
 
 .about li {
 	padding: 6px 0;
-}
-
-.contentQuote {
-	font-size: 2rem;
-	font-weight: bold;
 }
 
 .projects {
