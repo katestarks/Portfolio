@@ -82,20 +82,35 @@ function addAboutMeText(PDO $db, string $addAboutMeText) : array {
     return $query->fetchAll();
 }
 
+/**
+ * Returns an array from the database of all lines of text
+ *
+ * @param PDO $db database connection
+ *
+ * @return array of id and content for all lines of the database
+ */
+function getAboutMeTextAndQuote (PDO $db) : array {
+    $query = $db->prepare("SELECT `id`,`content` FROM `about_me` WHERE `deleted` = 0");
+    $query->execute();
+    return $query->fetchAll();
+}
 
 /**
- * Creates a dropdown list from the content returned from the database referencing the line with the primary key
+ * Takes content from the database, shortens the length and inserts into a string of html
  *
- * @param array $aboutMeTexts output from function fetching content from database
- * @return string of html to echo out in admin page as select form option
+ * @param array $aboutMeTextAndQuotes from database fetch
+ *
+ * @return string of options for the edit text dropdown
  */
-function editAboutMeText (array $aboutMeTexts) : string {
+function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
     $dropdown = "";
-    foreach ($aboutMeTexts as $aboutMeText) {
-        $shortAboutMe = substr($aboutMeText['content'], 0, 50);
-        $dropdown .= '<option value='. $aboutMeText['id'] . '>' . $shortAboutMe . '</option>';
+    foreach ($aboutMeTextAndQuotes as $aboutMeTextAndQuote) {
+        $shortAboutMe = substr($aboutMeTextAndQuote['content'], 0, 50);
+        $dropdown .= '<option value='. $aboutMeTextAndQuote['id'] . '>' . $shortAboutMe . '</option>';
     }
     return $dropdown;
 }
+
+
 
 ?>

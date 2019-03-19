@@ -9,8 +9,10 @@ if (isset($_POST['addAboutMeText'])) {
     $newAboutMeText = addAboutMeText($db, $addAboutMeText);
 }
 
-$aboutMeText = getAboutMeText($db);
-$displayEditAboutMeDropdown = editAboutMeText($aboutMeText);
+$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
+$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
+
+
 
 ?>
 
