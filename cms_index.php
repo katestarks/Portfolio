@@ -2,6 +2,9 @@
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
+session_start();
+
+
 $db = getdbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
@@ -16,6 +19,13 @@ if(isset($_POST['selectAboutMeText'])) {
     $aboutMeDropDownValue = $_POST['selectAboutMeText'];
     $aboutTextToEdit = getAboutTextToEdit($db, $aboutMeDropDownValue);
     $displayAboutTextToEdit = displayAboutTextToEdit($aboutTextToEdit);
+    $_SESSION['id'] = $aboutMeDropDownValue;
+}
+
+if(isset($_POST['editAboutMeTextAndQuote'])) {
+    $submitEditText = $_POST['editAboutMeTextAndQuote'];
+    $updateAboutMeTextAndQuote = updateAboutMeTextAndQuote($db, $submitEditText, $_SESSION['id']);
+    $editAboutMeSuccess = editAboutMeSuccess($updateAboutMeTextAndQuote);
 }
 
 ?>
@@ -54,6 +64,9 @@ if(isset($_POST['selectAboutMeText'])) {
             </textarea>
         <input type="submit" value="Edit text">
     </form>
+    <?php
+    echo $editAboutMeSuccess;
+    ?>
     <form method="post">
         <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
         <select class="aboutMeDropdown" name="deleteAboutMeText">

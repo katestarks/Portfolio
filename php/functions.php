@@ -1,7 +1,7 @@
 <?php
 
 require_once "dbConnection.php";
-
+session_start();
 
 /**
  * Retrieves content from the database excluding line 1
@@ -131,12 +131,8 @@ function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
  *
  * @param array $aboutTextToEdit content value fetched from the database
  *
- * @return string of content from the array
+ * @return string of content from the array; otherwise returns an empty string
  */
-//function displayAboutTextToEdit(array $aboutTextToEdit) : string {
-//    return $aboutTextToEdit[0]["content"];
-//}
-
 function displayAboutTextToEdit(array $aboutTextToEdits) : string {
     $result="";
     foreach ($aboutTextToEdits as $aboutTextToEdit) {
@@ -148,4 +144,38 @@ function displayAboutTextToEdit(array $aboutTextToEdits) : string {
     }
     return $result;
 }
+
+/**
+ * Update data base with edited content
+ *
+ * @param PDO $db database connection
+ * @param string $submitEditText edited content from the form
+ * @param string $id database id saved in the session
+ *
+ * @return updates the database with edited content based on id
+ */
+function updateAboutMeTextAndQuote(PDO $db, string $submitEditText, string $id) {
+    $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
+    $query->bindParam(':submitEditText', $submitEditText);
+    $query->bindParam(':id', $id);
+    return $query->execute();
+}
+
+/**
+ * Displays a message depending on the outcome of the update function
+ *
+ * @param Bool $updateAboutMeQuoteAndText indicates whether the function has been successful
+ *
+ * @return string message to be displayed in the browser
+ */
+function editAboutMeSuccess(bool $updateAboutMeQuoteAndText) : string {
+    $result = "";
+    if ($updateAboutMeQuoteAndText === true) {
+        $result .= "<p>Your content has been updated</p>";
+    } else {
+        $result .= "<p>There has been an error</p>";
+    }
+    return $result;
+}
+
 ?>

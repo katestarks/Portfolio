@@ -97,5 +97,28 @@ class StackTest extends Testcase
         $this->expectException(TypeError::class);
         displayAboutTextToEdit($aboutTextToEdit);
     }
+
+    public function testEditAboutMeSuccessSuccess()
+    {
+        $expected = "<p>Your content has been updated</p>";
+        $updateAboutMeQuoteAndText = true;
+        $case = editAboutMeSuccess($updateAboutMeQuoteAndText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testEditAboutMeSuccessFailure()
+    {
+        $expected = "<p>There has been an error</p>";
+        $updateAboutMeQuoteAndText = false;
+        $case = editAboutMeSuccess($updateAboutMeQuoteAndText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testEditAboutMeSuccessMalform()
+    {
+        $aboutTextToEdit = 'string';
+        $this->expectException(TypeError::class);
+        displayAboutTextToEdit($aboutTextToEdit);
+    }
 }
     ?>
