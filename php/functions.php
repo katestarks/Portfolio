@@ -11,7 +11,7 @@ require_once "dbConnection.php";
  * returns an array of content field excluding the first line of the database
  */
 function getAboutMeText(PDO $db) : array {
-    $query = $db->prepare("SELECT `content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1,50");
+    $query = $db->prepare("SELECT `id`,`content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1,50");
     $query->execute();
     return $query->fetchAll();
 }
@@ -43,7 +43,7 @@ function displayAboutMeText(array $aboutMeTexts) : string {
  * returns an array of content field limited to the first line of the database
  */
 function getAboutMeQuote(PDO $db) : array {
-    $query = $db->prepare("SELECT `content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1");
+    $query = $db->prepare("SELECT `id`,`content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1");
     $query->execute();
     return $query->fetchAll();
 }
@@ -67,7 +67,6 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
     return $result;
 }
 
-
 /**
  * Adds data to content field when input into CMS form
  *
@@ -82,4 +81,21 @@ function addAboutMeText(PDO $db, string $addAboutMeText) : array {
     $query->execute();
     return $query->fetchAll();
 }
+
+
+/**
+ * Creates a dropdown list from the content returned from the database referencing the line with the primary key
+ *
+ * @param array $aboutMeTexts output from function fetching content from database
+ * @return string of html to echo out in admin page as select form option
+ */
+function editAboutMeText (array $aboutMeTexts) : string {
+    $dropdown = "";
+    foreach ($aboutMeTexts as $aboutMeText) {
+        $shortAboutMe = substr($aboutMeText['content'], 0, 50);
+        $dropdown .= '<option value='. $aboutMeText['id'] . '>' . $shortAboutMe . '</option>';
+    }
+    return $dropdown;
+}
+
 ?>

@@ -9,6 +9,9 @@ if (isset($_POST['addAboutMeText'])) {
     $newAboutMeText = addAboutMeText($db, $addAboutMeText);
 }
 
+$aboutMeText = getAboutMeText($db);
+$displayEditAboutMeDropdown = editAboutMeText($aboutMeText);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +34,9 @@ if (isset($_POST['addAboutMeText'])) {
     <form method="post">
         <label for="selectAboutMeText"><h4>Edit text:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
-
+            <?php
+            echo $displayEditAboutMeDropdown;
+            ?>
         </select>
         <input type="submit" value="select text">
     </form>
