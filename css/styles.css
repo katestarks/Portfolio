@@ -2,15 +2,14 @@
 	box-sizing: border-box;
 }
 
-body {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
-}
-
 body h1, h2, h3, h4, h5, h6 {
 	font-family: 'Nova Square', cursive;
 }
 
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
 main {
 	height: 100vh;
 	background-color: #5AC4F9;
