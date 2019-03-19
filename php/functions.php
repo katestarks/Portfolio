@@ -112,5 +112,29 @@ function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
 }
 
 
+/**
+ * Fetches content from the database to display in the edit box
+ *
+ * @param PDO $db connection to database
+ * @param string $aboutMeDropDownValue variable assigned from post data in form dropdown
+ *
+ * @return array of one content value from the database
+ */
+function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
+    $query = $db->prepare("SELECT `content` FROM `about_me` WHERE `id` = '$aboutMeDropDownValue';");
+    $query->execute();
+    return $query->fetchAll();
+}
+
+/**
+ * displays the content value fetched from the database inside the edit box
+ *
+ * @param array $aboutTextToEdit content value fetched from the database
+ *
+ * @return string of content from the array
+ */
+function displayAboutTextToEdit(array $aboutTextToEdit) : string {
+    return $aboutTextToEdit[0]["content"];
+}
 
 ?>

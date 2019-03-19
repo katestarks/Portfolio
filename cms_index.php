@@ -12,7 +12,11 @@ if (isset($_POST['addAboutMeText'])) {
 $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
 $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
 
-
+if(isset($_POST['selectAboutMeText'])) {
+    $aboutMeDropDownValue = $_POST['selectAboutMeText'];
+    $aboutTextToEdit = getAboutTextToEdit($db, $aboutMeDropDownValue);
+    $displayAboutTextToEdit = displayAboutTextToEdit($aboutTextToEdit);
+}
 
 ?>
 
@@ -34,7 +38,7 @@ $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
         <input type="submit" value="Add text">
     </form>
     <form method="post">
-        <label for="selectAboutMeText"><h4>Edit text:</h4></label>
+        <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
             <?php
             echo $displayEditAboutMeDropdown;
@@ -42,9 +46,11 @@ $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
         </select>
         <input type="submit" value="select text">
     </form>
-    <form method="post">
-            <textarea class="typeText" name="editAboutMeText" form="editAboutMeText">
-
+    <form method="post" action="" id="editAboutMeTextAndQuote">
+            <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
+                <?php
+                echo $displayAboutTextToEdit;
+                ?>
             </textarea>
         <input type="submit" value="Edit text">
     </form>
