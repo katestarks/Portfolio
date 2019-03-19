@@ -129,15 +129,6 @@ nav li::before {
 	text-align: right;
 }
 
-.about .skillsListLineOne::before {
-	content: " ";
-	height: 25px;
-	width: 270px;
-	background-color: #FFFFFF;
-	position: absolute;
-	z-index: -1;
-}
-
 .about h4 {
 	padding: 0 5%;
 	margin: 10px 0;
@@ -146,12 +137,16 @@ nav li::before {
 }
 
 .about h4::before {
-	content: "";
+	content: " ";
 	height: 25px;
 	width: 305px;
 	background-color: #FFFFFF;
 	position: absolute;
 	z-index: -1;
+}
+
+.about .skillsListLineOne::before {
+	width: 270px;
 }
 
 .aboutContentRight {
@@ -385,7 +380,6 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
-
 	nav h1 {
 		font-size: 1.25rem;
 	}
