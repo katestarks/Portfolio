@@ -1,3 +1,16 @@
+<?php
+require_once 'php/dbConnection.php';
+require_once 'php/functions.php';
+
+$db = getdbConnection();
+
+if (isset($_POST['addAboutMeText'])) {
+    $addAboutMeText = $_POST['addAboutMeText'];
+    $newAboutMeText = addAboutMeText($db, $addAboutMeText);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +23,7 @@
 <h1>Content Managing Kate's Portfolio Page</h1>
 <section class="aboutMe">
     <h2>About Me</h2>
-    <form method="post">
+    <form method="POST" action="" id="addAboutMeText">
         <label for="addAboutMeText"><h4>Add new information or additional paragraphs here:</h4></label>
         <textarea class="typeText" name="addAboutMeText" form="addAboutMeText"></textarea>
         <input type="submit" value="Add text">

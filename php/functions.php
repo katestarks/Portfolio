@@ -67,10 +67,19 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
     return $result;
 }
 
-function addNewText($newText) {
-    $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:newText)");
-    $query->bindParam(':newText', $newText);
-    $query->execute();
-}
 
+/**
+ * Adds data to content field when input into CMS form
+ *
+ * @param PDO $db database kate_portfolio
+ * @param string $addAboutMeText values posted from the form
+ *
+ * @return array of text input into the form on CMS
+ */
+function addAboutMeText(PDO $db, string $addAboutMeText) : array {
+    $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:addAboutMeText);");
+    $query->bindParam(':addAboutMeText', $addAboutMeText);
+    $query->execute();
+    return $query->fetchAll();
+}
 ?>
