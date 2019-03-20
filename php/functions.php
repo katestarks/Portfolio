@@ -1,7 +1,6 @@
 <?php
 
 require_once "dbConnection.php";
-session_start();
 
 /**
  * Retrieves content from the database excluding line 1
@@ -68,6 +67,32 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
 }
 
 /**
+ * Removes white space from content
+ * @param string $addAboutMeText content from form add input
+ *
+ * @return string content from add input with white space removed at start and end
+ */
+function cleanAboutMeText(string $addAboutMeText) :string {
+    return trim($addAboutMeText);
+}
+
+/**
+ * Checks whether there is content in the add input
+ *
+ * @param string $addAboutMeText returned from the add form input
+ *
+ * @return bool returns boolean determining whether there is content
+ */
+function checkAddMeText(string $addAboutMeText) :bool {
+    if (empty($addAboutMeText)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+/**
  * Adds data to content field when input into CMS form
  *
  * @param PDO $db database kate_portfolio
@@ -75,11 +100,29 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
  *
  * @return array of text input into the form on CMS
  */
-function addAboutMeText(PDO $db, string $addAboutMeText) : array {
-    $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:addAboutMeText);");
-    $query->bindParam(':addAboutMeText', $addAboutMeText);
-    $query->execute();
-    return $query->fetchAll();
+function addAboutMeText(PDO $db, $checkAddMeText, string $addAboutMeText) : bool {
+    if ($checkAddMeText == false) {
+        $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:addAboutMeText);");
+        $query->bindParam(':addAboutMeText', $addAboutMeText);
+        return $query->execute();
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Displays a success message depending on whether the add me text has gone to database
+ *
+ * @param bool $newAboutMeText outcome of adding text to the database
+ *
+ * @return string display message to say whether the add text has been added to the database
+ */
+function addAboutMeSuccess(bool $newAboutMeText) : string {
+    if ($newAboutMeText === false) {
+        return "<p>Please add content</p>";
+    } else {
+        return "<p>Your text has been added</p>";
+    }
 }
 
 /**

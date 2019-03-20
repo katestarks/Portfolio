@@ -52,6 +52,42 @@ class StackTest extends Testcase
         displayAboutMeQuote($aboutMeQuote);
     }
 
+    public function testCleanAboutMeText()
+    {
+        $expected = "string";
+        $addAboutMeText = "  string  ";
+        $case = CleanAboutMeText($addAboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckAddMeTextSuccess() {
+        $expected = true;
+        $addAboutMeText = "";
+        $case = checkAddMeText($addAboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testCheckAddMeTextFailure() {
+        $expected = false;
+        $addAboutMeText = "string";
+        $case = checkAddMeText($addAboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testAddAboutMeSuccessFalse() {
+        $expected = "<p>Please add content</p>";
+        $newAboutMeText = false;
+        $case = AddAboutMeSuccess($newAboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testAddAboutMeSuccessTrue() {
+        $expected = "<p>Your text has been added</p>";
+        $newAboutMeText = true;
+        $case = AddAboutMeSuccess($newAboutMeText);
+        $this->assertEquals($expected, $case);
+    }
+
     public function testEditAboutMeTextAndQuoteSuccess()
     {
         $expected = "<option value=1>test data</option>";

@@ -2,14 +2,14 @@
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
-session_start();
-
-
 $db = getdbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
-    $newAboutMeText = addAboutMeText($db, $addAboutMeText);
+    $cleanAboutMeText = cleanAboutMeText($addAboutMeText);
+    $checkAddMeText = checkAddMeText($cleanAboutMeText);
+    $newAboutMeText = addAboutMeText($db, $checkAddMeText, $cleanAboutMeText);
+    $addAboutMeSuccess = addAboutMeSuccess($newAboutMeText);
 }
 
 $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
@@ -21,7 +21,6 @@ if(isset($_POST['selectAboutMeText'])) {
     $displayAboutTextToEdit = displayAboutTextToEdit($aboutTextToEdit);
     $displaySubmitEditButton = displaySubmitEditButton();
 }
-
 
 if(isset($_POST['editAboutMeTextAndQuote'])) {
     $submitEditText = $_POST['editAboutMeTextAndQuote'];
@@ -50,6 +49,9 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
         <textarea class="typeText" name="addAboutMeText" form="addAboutMeText"></textarea>
         <input type="submit" value="Add text">
     </form>
+    <?php
+    echo $addAboutMeSuccess;
+    ?>
     <form method="post">
         <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
