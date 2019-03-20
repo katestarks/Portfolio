@@ -52,7 +52,7 @@ class StackTest extends Testcase
         displayAboutMeQuote($aboutMeQuote);
     }
 
-    public function testCleanAboutMeText()
+    public function testCleanAboutMeTextSuccess()
     {
         $expected = "string";
         $addAboutMeText = "  string  ";
@@ -74,8 +74,15 @@ class StackTest extends Testcase
         $this->assertEquals($expected, $case);
     }
 
+    public function testCheckAddMeTextMalform()
+    {
+        $input = ['thing'];
+        $this->expectException(TypeError::class);
+        checkAddMeText($input);
+    }
+
     public function testAddAboutMeSuccessFalse() {
-        $expected = "<p>Please add content</p>";
+        $expected = "<p>Please add content of up to 400 characters</p>";
         $newAboutMeText = false;
         $case = AddAboutMeSuccess($newAboutMeText);
         $this->assertEquals($expected, $case);
@@ -86,6 +93,13 @@ class StackTest extends Testcase
         $newAboutMeText = true;
         $case = AddAboutMeSuccess($newAboutMeText);
         $this->assertEquals($expected, $case);
+    }
+
+    public function testAddAboutMeSuccessMalform()
+    {
+        $input = ['thing'];
+        $this->expectException(TypeError::class);
+        addAboutMeSuccess($input);
     }
 
     public function testEditAboutMeTextAndQuoteSuccess()

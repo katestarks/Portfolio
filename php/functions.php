@@ -119,7 +119,7 @@ function addAboutMeText(PDO $db, $checkAddMeText, string $addAboutMeText) : bool
  */
 function addAboutMeSuccess(bool $newAboutMeText) : string {
     if ($newAboutMeText === false) {
-        return "<p>Please add content</p>";
+        return "<p>Please add content of up to 400 characters</p>";
     } else {
         return "<p>Your text has been added</p>";
     }
