@@ -98,6 +98,13 @@ class StackTest extends Testcase
         displayAboutTextToEdit($aboutTextToEdit);
     }
 
+    public function testDisplaySubmitEditButtonSuccess()
+    {
+        $expected = '<input type="submit" value="Edit text">';
+        $case = displaySubmitEditButton();
+        $this->assertEquals($expected, $case);
+    }
+
     public function testEditAboutMeSuccessSuccess()
     {
         $expected = "<p>Your content has been updated</p>";

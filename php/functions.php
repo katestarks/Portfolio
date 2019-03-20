@@ -167,7 +167,7 @@ function updateAboutMeQuoteAndText(PDO $db, string $submitEditText, string $edit
  *
  * @return string html form input button
  */
-function displaySubmitEditButton() {
+function displaySubmitEditButton() :string {
     return '<input type="submit" value="Edit text">';
 }
 
