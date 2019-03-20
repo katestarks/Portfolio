@@ -16,16 +16,19 @@ $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
 $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
 
 if(isset($_POST['selectAboutMeText'])) {
-    $aboutMeDropDownValue = $_POST['selectAboutMeText'];
-    $aboutTextToEdit = getAboutTextToEdit($db, $aboutMeDropDownValue);
+    $editId = $_POST['selectAboutMeText'];
+    $aboutTextToEdit = getAboutTextToEdit($db, $editId);
     $displayAboutTextToEdit = displayAboutTextToEdit($aboutTextToEdit);
-    $_SESSION['id'] = $aboutMeDropDownValue;
+    $displaySubmitEditButton = displaySubmitEditButton();
 }
+
 
 if(isset($_POST['editAboutMeTextAndQuote'])) {
     $submitEditText = $_POST['editAboutMeTextAndQuote'];
-    $updateAboutMeTextAndQuote = updateAboutMeTextAndQuote($db, $submitEditText, $_SESSION['id']);
-    $editAboutMeSuccess = editAboutMeSuccess($updateAboutMeTextAndQuote);
+    $editId = $_POST['editId'];
+    $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $submitEditText, $editId);
+    $editAboutMeSuccess = editAboutMeSuccess($updateAboutMeQuoteAndText);
+    header('Location: cms_index.php');
 }
 
 ?>
@@ -58,11 +61,14 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
     </form>
     <form method="post" action="" id="editAboutMeTextAndQuote">
             <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
-                <?php
-                echo $displayAboutTextToEdit;
-                ?>
+<?php echo $displayAboutTextToEdit;?>
             </textarea>
-        <input type="submit" value="Edit text">
+                <?php
+                if (isset($editId)) {
+                    echo '<input type="hidden" value=' . $editId . ' name="editId">';
+                    }
+                echo $displaySubmitEditButton;
+                ?>
     </form>
     <?php
     echo $editAboutMeSuccess;

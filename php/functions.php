@@ -154,11 +154,21 @@ function displayAboutTextToEdit(array $aboutTextToEdits) : string {
  *
  * @return updates the database with edited content based on id
  */
-function updateAboutMeTextAndQuote(PDO $db, string $submitEditText, string $id) {
+function updateAboutMeQuoteAndText(PDO $db, string $submitEditText, string $editID) :bool {
     $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
     $query->bindParam(':submitEditText', $submitEditText);
-    $query->bindParam(':id', $id);
+    $query->bindParam(':id', $editID);
     return $query->execute();
+}
+
+
+/**
+ * displays html button
+ *
+ * @return string html form input button
+ */
+function displaySubmitEditButton() {
+    return '<input type="submit" value="Edit text">';
 }
 
 /**
