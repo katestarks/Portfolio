@@ -167,7 +167,7 @@ function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
 function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
     $query = $db->prepare("SELECT `content` FROM `about_me` WHERE `id` = '$aboutMeDropDownValue';");
     $query->execute();
-    return $query->fetchAll();
+    return $query->fetch();
 }
 
 /**
@@ -177,15 +177,14 @@ function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
  *
  * @return string of content from the array; otherwise returns an empty string
  */
-function displayAboutTextToEdit(array $aboutTextToEdits) : string {
+
+function displayAboutTextToEdit(array $aboutTextToEdit) : string {
     $result="";
-    foreach ($aboutTextToEdits as $aboutTextToEdit) {
         if(array_key_exists('content', $aboutTextToEdit)) {
             $result .= $aboutTextToEdit['content'];
         } else {
             $result .="";
         }
-    }
     return $result;
 }
 
