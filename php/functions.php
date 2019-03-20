@@ -73,7 +73,8 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
  * @return string content from add input with white space removed at start and end
  */
 function removeWhitespace(string $AboutMeText) :string {
-    return trim($AboutMeText);
+    trim($AboutMeText);
+    return $newAboutMeText = htmlspecialchars($AboutMeText);
 }
 
 /**

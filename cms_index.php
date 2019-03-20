@@ -30,7 +30,6 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
     $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $checkEditText, $cleanEditText, $editId);
     header('Location: cms_index.php');
 }
-
 ?>
 
 <!DOCTYPE html>
