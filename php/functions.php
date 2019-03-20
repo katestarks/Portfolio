@@ -68,23 +68,23 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
 
 /**
  * Removes white space from content
- * @param string $addAboutMeText content from form add input
+ * @param string $AboutMeText content from form add input
  *
  * @return string content from add input with white space removed at start and end
  */
-function cleanAboutMeText(string $addAboutMeText) :string {
-    return trim($addAboutMeText);
+function removeWhitespace(string $AboutMeText) :string {
+    return trim($AboutMeText);
 }
 
 /**
  * Checks whether there is content in the add input
  *
- * @param string $addAboutMeText returned from the add form input
+ * @param string $AboutMeText returned from the add form input
  *
  * @return bool returns boolean determining whether there is content
  */
-function checkAddMeText(string $addAboutMeText) :bool {
-    if (empty($addAboutMeText)) {
+function checkTextExists(string $AboutMeText) :bool {
+    if ($AboutMeText == '') {
         $result = true;
     } else {
         $result = false;
@@ -96,11 +96,12 @@ function checkAddMeText(string $addAboutMeText) :bool {
  * Adds data to content field when input into CMS form
  *
  * @param PDO $db database kate_portfolio
+ * @param bool returned from the function which checks whether there are characters in the string
  * @param string $addAboutMeText values posted from the form
  *
- * @return array of text input into the form on CMS
+ * @return bool determined by whether the text has been successfully input into the form on CMS
  */
-function addAboutMeText(PDO $db, $checkAddMeText, string $addAboutMeText) : bool {
+function addAboutMeText(PDO $db, bool $checkAddMeText, string $addAboutMeText) : bool {
     if ($checkAddMeText == false) {
         $query = $db->prepare("INSERT INTO `about_me`(`content`) VALUES (:addAboutMeText);");
         $query->bindParam(':addAboutMeText', $addAboutMeText);
@@ -154,7 +155,6 @@ function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
     return $dropdown;
 }
 
-
 /**
  * Fetches content from the database to display in the edit box
  *
@@ -172,7 +172,7 @@ function getAboutTextToEdit(PDO $db, string $aboutMeDropDownValue) : array {
 /**
  * displays the content value fetched from the database inside the edit box
  *
- * @param array $aboutTextToEdit content value fetched from the database
+ * @param array $aboutTextToEdits content value fetched from the database
  *
  * @return string of content from the array; otherwise returns an empty string
  */
@@ -192,18 +192,22 @@ function displayAboutTextToEdit(array $aboutTextToEdits) : string {
  * Update data base with edited content
  *
  * @param PDO $db database connection
+ * @param bool returned from the function which checks whether there are characters in the string
  * @param string $submitEditText edited content from the form
- * @param string $id database id saved in the session
+ * @param string $editId database id saved in the session
  *
- * @return updates the database with edited content based on id
+ * @return bool updates the database with edited content based on id
  */
-function updateAboutMeQuoteAndText(PDO $db, string $submitEditText, string $editID) :bool {
-    $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
-    $query->bindParam(':submitEditText', $submitEditText);
-    $query->bindParam(':id', $editID);
-    return $query->execute();
+function updateAboutMeQuoteAndText(PDO $db, bool $checkEditText, string $submitEditText, string $editId) :bool {
+    if ($checkEditText === false) {
+        $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
+        $query->bindParam(':submitEditText', $submitEditText);
+        $query->bindParam(':id', $editId);
+        return $query->execute();
+    } else {
+        return false;
+    }
 }
-
 
 /**
  * displays html button
@@ -213,22 +217,4 @@ function updateAboutMeQuoteAndText(PDO $db, string $submitEditText, string $edit
 function displaySubmitEditButton() :string {
     return '<input type="submit" value="Edit text">';
 }
-
-/**
- * Displays a message depending on the outcome of the update function
- *
- * @param Bool $updateAboutMeQuoteAndText indicates whether the function has been successful
- *
- * @return string message to be displayed in the browser
- */
-function editAboutMeSuccess(bool $updateAboutMeQuoteAndText) : string {
-    $result = "";
-    if ($updateAboutMeQuoteAndText === true) {
-        $result .= "<p>Your content has been updated</p>";
-    } else {
-        $result .= "<p>There has been an error</p>";
-    }
-    return $result;
-}
-
 ?>

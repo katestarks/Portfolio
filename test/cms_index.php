@@ -9,89 +9,93 @@ class StackTest extends Testcase
     public function testDisplayAboutMeTextSuccess()
     {
         $expected = '<p>test data</p>';
-        $aboutMeText = [['content' => 'test data']];
-        $case = displayAboutMeText($aboutMeText);
+        $input = [['content' => 'test data']];
+        $case = displayAboutMeText($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutMeTextFailure()
     {
         $expected = "";
-        $aboutMeText = [['thing'=>'words']];
-        $case = displayAboutMeText($aboutMeText);
+        $input = [['thing'=>'words']];
+        $case = displayAboutMeText($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutMeTextMalform()
     {
-        $aboutMeText = 'string';
+        $input = 'string';
         $this->expectException(TypeError::class);
-        displayAboutMeText($aboutMeText);
+        displayAboutMeText($input);
     }
 
     public function testDisplayAboutMeQuoteSuccess()
     {
         $expected = '<p class=\'contentEmphasisLine\'>test data<span class=\'contentQuote\'>"</span></p>';
-        $aboutMeQuote = [['content' => 'test data']];
-        $case = displayAboutMeQuote($aboutMeQuote);
+        $input = [['content' => 'test data']];
+        $case = displayAboutMeQuote($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutMeQuoteFailure()
     {
         $expected = "";
-        $aboutMeQuote = [['thing'=>'words']];
-        $case = displayAboutMeQuote($aboutMeQuote);
+        $input = [['thing'=>'words']];
+        $case = displayAboutMeQuote($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutMeQuoteMalform()
     {
-        $aboutMeQuote = 'string';
+        $input = 'string';
         $this->expectException(TypeError::class);
-        displayAboutMeQuote($aboutMeQuote);
+        displayAboutMeQuote($input);
     }
 
-    public function testCleanAboutMeTextSuccess()
+    public function testRemoveWhitespaceSuccess()
     {
         $expected = "string";
-        $addAboutMeText = "  string  ";
-        $case = CleanAboutMeText($addAboutMeText);
+        $input = "  string  ";
+        $case = removeWhitespace($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testCheckAddMeTextSuccess() {
+    public function testCheckTextExistsSuccess()
+    {
         $expected = true;
-        $addAboutMeText = "";
-        $case = checkAddMeText($addAboutMeText);
+        $input = "";
+        $case = checkTextExists($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testCheckAddMeTextFailure() {
+    public function testCheckTextExistsFailure()
+    {
         $expected = false;
-        $addAboutMeText = "string";
-        $case = checkAddMeText($addAboutMeText);
+        $input = "string";
+        $case = CheckTextExists($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testCheckAddMeTextMalform()
+    public function testCheckTextExistsMalform()
     {
         $input = ['thing'];
         $this->expectException(TypeError::class);
-        checkAddMeText($input);
+        CheckTextExists($input);
     }
 
-    public function testAddAboutMeSuccessFalse() {
+    public function testAddAboutMeSuccessFalse()
+    {
         $expected = "<p>Please add content of up to 400 characters</p>";
-        $newAboutMeText = false;
-        $case = AddAboutMeSuccess($newAboutMeText);
+        $input = false;
+        $case = AddAboutMeSuccess($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testAddAboutMeSuccessTrue() {
+    public function testAddAboutMeSuccessTrue()
+    {
         $expected = "<p>Your text has been added</p>";
-        $newAboutMeText = true;
-        $case = AddAboutMeSuccess($newAboutMeText);
+        $input = true;
+        $case = AddAboutMeSuccess($input);
         $this->assertEquals($expected, $case);
     }
 
@@ -105,47 +109,47 @@ class StackTest extends Testcase
     public function testEditAboutMeTextAndQuoteSuccess()
     {
         $expected = "<option value=1>test data</option>";
-        $aboutMeTextAndQuote = [['id'=>1, 'content'=>'test data']];
-        $case = editAboutMeTextAndQuote($aboutMeTextAndQuote);
+        $input = [['id'=>1, 'content'=>'test data']];
+        $case = editAboutMeTextAndQuote($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testEditAboutMeTextAndQuoteFailure()
     {
         $expected = '<option value=></option>';
-        $aboutMeTextAndQuote = [['thing'=>'words']];
-        $case = editAboutMeTextAndQuote($aboutMeTextAndQuote);
+        $input = [['thing'=>'words']];
+        $case = editAboutMeTextAndQuote($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testEditAboutMeTextAndQuoteMalform()
     {
-        $aboutMeTextAndQuote = 'string';
+        $input = 'string';
         $this->expectException(TypeError::class);
-        editAboutMeTextAndQuote($aboutMeTextAndQuote);
+        editAboutMeTextAndQuote($input);
     }
 
     public function testDisplayAboutTextToEditSuccess()
     {
         $expected = 'test data';
-        $aboutTextToEdit = [['id'=>1, 'content'=>'test data']];
-        $case = displayAboutTextToEdit($aboutTextToEdit);
+        $input = [['id'=>1, 'content'=>'test data']];
+        $case = displayAboutTextToEdit($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutTextToEditFailure()
     {
         $expected = "";
-        $aboutTextToEdit = [['thing'=>'words']];
-        $case = displayAboutTextToEdit($aboutTextToEdit);
+        $input = [['thing'=>'words']];
+        $case = displayAboutTextToEdit($input);
         $this->assertEquals($expected, $case);
     }
 
     public function testDisplayAboutTextToEditMalform()
     {
-        $aboutTextToEdit = 'string';
+        $input = 'string';
         $this->expectException(TypeError::class);
-        displayAboutTextToEdit($aboutTextToEdit);
+        displayAboutTextToEdit($input);
     }
 
     public function testDisplaySubmitEditButtonSuccess()
@@ -153,29 +157,6 @@ class StackTest extends Testcase
         $expected = '<input type="submit" value="Edit text">';
         $case = displaySubmitEditButton();
         $this->assertEquals($expected, $case);
-    }
-
-    public function testEditAboutMeSuccessSuccess()
-    {
-        $expected = "<p>Your content has been updated</p>";
-        $updateAboutMeQuoteAndText = true;
-        $case = editAboutMeSuccess($updateAboutMeQuoteAndText);
-        $this->assertEquals($expected, $case);
-    }
-
-    public function testEditAboutMeSuccessFailure()
-    {
-        $expected = "<p>There has been an error</p>";
-        $updateAboutMeQuoteAndText = false;
-        $case = editAboutMeSuccess($updateAboutMeQuoteAndText);
-        $this->assertEquals($expected, $case);
-    }
-
-    public function testEditAboutMeSuccessMalform()
-    {
-        $aboutTextToEdit = 'string';
-        $this->expectException(TypeError::class);
-        displayAboutTextToEdit($aboutTextToEdit);
     }
 }
     ?>
