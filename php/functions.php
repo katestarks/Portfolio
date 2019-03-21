@@ -241,4 +241,18 @@ function deleteAboutMeSuccess(bool $aboutMeTextDeleted) : string {
         return "<p>The paragraph has been deleted</p>";
     }
 }
+
+/**
+ * retrieves username and password from database
+ *
+ * @param PDO $db database connection
+ *
+ * @return array of the username and password
+ */
+function fetchCredentials(PDO $db) : array {
+    $query = $db->prepare("SELECT `username`,`password` FROM `credentials`;");
+    $query->execute();
+    return $query->fetch();
+}
+
 ?>

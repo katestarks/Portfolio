@@ -51,6 +51,17 @@ nav ul {
 	font-weight: bold;
 }
 
+.loginIcon {
+	height: 5%;
+	width: 5%;
+	margin: 25px;
+	opacity: 0;
+}
+
+.loginIcon:hover {
+	opacity: 1;
+}
+
 nav a {
 	text-decoration: none;
 	color: #02C7A6;
