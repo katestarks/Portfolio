@@ -102,7 +102,7 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
 </section>
 <footer>
     <ul>
-        <li><h2><a href='../index.php'</a>Home</h2></li>
+        <li><h2><a href='index.php'>Home</h2></li></a>
     </ul>
 </footer>
 </body>
