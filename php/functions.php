@@ -218,6 +218,15 @@ function displaySubmitEditButton() :string {
     return '<input type="submit" value="Edit text">';
 }
 
+
+/**
+ * Updates column in database to 'turn on' deleted with a 1
+ *
+ * @param PDO $db database connection
+ * @param string $deleteAboutMePara variable with POST data from form assigned which is id of row from database
+
+ * @return bool returns a boolean depending on whether the database has been successfully updated
+ */
 function deleteAboutMeText($db, $deleteAboutMePara) {
    $query = $db->prepare("UPDATE `about_me` SET `deleted` = 1 WHERE `id` = :deleteAboutMePara;");
    $query->bindParam(':deleteAboutMePara', $deleteAboutMePara);
