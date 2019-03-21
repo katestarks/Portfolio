@@ -2,6 +2,10 @@
 
 session_start();
 
+if(isset($_POST['logOut'])) {
+    $_SESSION['loggedIn'] = false;
+}
+
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
@@ -65,6 +69,10 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
 </head>
 <body>
     <h1>Content Managing Kate's Portfolio Page</h1>
+    <form method="POST">
+        <input type="hidden" name="logOut" value="false">
+        <input type="submit" value="Log out">
+    </form>
     <section class="aboutMe">
         <h2>About Me</h2>
         <form method="POST" action="cms_index.php" id="addAboutMeText">
