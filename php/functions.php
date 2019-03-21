@@ -72,9 +72,9 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
  *
  * @return string content from add input with white space removed at start and end
  */
-function removeWhitespace(string $AboutMeText) :string {
-    trim($AboutMeText);
-    return $newAboutMeText = htmlspecialchars($AboutMeText);
+function removeWhitespaceHTML(string $AboutMeText) :string {
+    $removeWhitespace = trim($AboutMeText);
+    return $newAboutMeText = htmlspecialchars($removeWhitespace);
 }
 
 /**
@@ -119,7 +119,7 @@ function addAboutMeText(PDO $db, bool $checkAddMeText, string $addAboutMeText) :
  *
  * @return string display message to say whether the add text has been added to the database
  */
-function addAboutMeSuccess(bool $newAboutMeText) : string {
+function aboutMeSuccess(bool $newAboutMeText) : string {
     if ($newAboutMeText === false) {
         return "<p>Please add content of up to 400 characters</p>";
     } else {

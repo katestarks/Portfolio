@@ -6,14 +6,11 @@ $db = getdbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
-    $cleanAboutMeText = removeWhitespace($addAboutMeText);
+    $cleanAboutMeText = removeWhitespaceHTML($addAboutMeText);
     $checkAddMeText = checkTextExists($cleanAboutMeText);
     $newAboutMeText = addAboutMeText($db, $checkAddMeText, $cleanAboutMeText);
-    $addAboutMeSuccess = addAboutMeSuccess($newAboutMeText);
+    $addAboutMeSuccess = aboutMeSuccess($newAboutMeText);
 }
-
-$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
-$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
 
 if(isset($_POST['selectAboutMeText'])) {
     $editId = $_POST['selectAboutMeText'];
@@ -24,12 +21,15 @@ if(isset($_POST['selectAboutMeText'])) {
 
 if(isset($_POST['editAboutMeTextAndQuote'])) {
     $submitEditText = $_POST['editAboutMeTextAndQuote'];
-    $cleanEditText = removeWhitespace($submitEditText);
+    $cleanEditText = removeWhitespaceHTML($submitEditText);
     $checkEditText = checkTextExists($cleanEditText);
     $editId = $_POST['editId'];
     $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $checkEditText, $cleanEditText, $editId);
-    header('Location: cms_index.php');
+    $editSuccessMessage = aboutMeSuccess($updateAboutMeQuoteAndText);
 }
+
+$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
+$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +74,7 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
                     echo '<input type="hidden" value=' . $editId . ' name="editId">';
                     }
                 echo $displaySubmitEditButton;
+                echo $editSuccessMessage;
                 ?>
     </form>
     <form method="POST">
