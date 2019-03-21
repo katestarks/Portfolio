@@ -31,6 +31,7 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
 if(isset($_POST['deleteAboutMeText'])) {
     $deleteAboutMePara = $_POST['deleteAboutMeText'];
     $aboutMeTextDeleted = deleteAboutMeText($db, $deleteAboutMePara);
+    $deleteSuccessMessage = deleteAboutMeSuccess($aboutMeTextDeleted);
 }
 
 $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
@@ -93,6 +94,11 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
         </select>
         <input type="submit" value="Delete">
     </form>
+    <?php
+    if(isset($deleteSuccessMessage)) {
+        echo $deleteSuccessMessage;
+    }
+    ?>
 </section>
 <footer>
     <ul>

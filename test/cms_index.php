@@ -158,5 +158,28 @@ class StackTest extends Testcase
         $case = displaySubmitEditButton();
         $this->assertEquals($expected, $case);
     }
+
+        public function testDeleteAboutMeSuccessFalse()
+    {
+        $expected = "<p>The content has been deleted</p>";
+        $input = false;
+        $case = deleteAboutMeSuccess($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDeleteAboutMeSuccessTrue()
+    {
+        $expected = "<p>The paragraph has been deleted</p>";
+        $input = true;
+        $case = deleteAboutMeSuccess($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testdeleteAboutMeSuccessMalform()
+    {
+        $input = ['thing'];
+        $this->expectException(TypeError::class);
+        deleteAboutMeSuccess($input);
+    }
 }
-    ?>
+?>

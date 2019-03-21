@@ -232,4 +232,19 @@ function deleteAboutMeText($db, $deleteAboutMePara) {
    $query->bindParam(':deleteAboutMePara', $deleteAboutMePara);
    return $query->execute();
 }
+
+/**
+ * Displays a success message depending on whether the add me text has gone to database
+ *
+ * @param bool $aboutMeTextDeleted outcome of updating the database
+ *
+ * @return string display message to say whether the 'delete has been successful'
+ */
+function deleteAboutMeSuccess(bool $aboutMeTextDeleted) : string {
+    if ($aboutMeTextDeleted === false) {
+        return "<p>The content has been deleted</p>";
+    } else {
+        return "<p>The paragraph has been deleted</p>";
+    }
+}
 ?>
