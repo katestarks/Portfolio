@@ -2,7 +2,7 @@
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
-$db = getdbConnection();
+$db = getDbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
@@ -24,7 +24,9 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
     $cleanEditText = removeWhitespaceHTML($submitEditText);
     $checkEditText = checkTextExists($cleanEditText);
     $editId = $_POST['editId'];
-    $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $checkEditText, $cleanEditText, $editId);
+    if ($checkEditText === false) {
+        $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $cleanEditText, $editId);
+    }
     $editSuccessMessage = aboutMeSuccess($updateAboutMeQuoteAndText);
 }
 
@@ -37,7 +39,6 @@ if(isset($_POST['deleteAboutMeText'])) {
 $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
 $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -49,61 +50,65 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
     <link rel='stylesheet' type='text/css' href='css/cms_styles.css'/>
 </head>
 <body>
-<h1>Content Managing Kate's Portfolio Page</h1>
-<section class="aboutMe">
-    <h2>About Me</h2>
-    <form method="POST" action="" id="addAboutMeText">
-        <label for="addAboutMeText"><h4>Add new information or additional paragraphs here:</h4></label>
-        <textarea class="typeText" name="addAboutMeText" form="addAboutMeText"></textarea>
-        <input type="submit" value="Add text">
-    </form>
-    <?php
-    if (isset($addAboutMeSuccess)) {
-        echo $addAboutMeSuccess;
-    }
-    ?>
-    <form method="POST">
-        <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
-        <select class="aboutMeDropdown" name="selectAboutMeText">
-            <?php
-            echo $displayAboutMeDropdown;
-            ?>
-        </select>
-        <input type="submit" value="select text">
-    </form>
-    <form method="POST" action="" id="editAboutMeTextAndQuote">
-            <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
-<?php
-            if (isset($displayAboutTextToEdit)) {
-                echo $displayAboutTextToEdit;
-            }?></textarea>
+    <h1>Content Managing Kate's Portfolio Page</h1>
+    <section class="aboutMe">
+        <h2>About Me</h2>
+        <form method="POST" action="cms_index.php" id="addAboutMeText">
+            <label for="addAboutMeText"><h4>Add new information or additional paragraphs here:</h4></label>
+            <textarea class="typeText" name="addAboutMeText" form="addAboutMeText"></textarea>
+            <input type="submit" value="Add text">
+        </form>
+        <?php
+        if (isset($addAboutMeSuccess)) {
+            echo $addAboutMeSuccess;
+        }
+        ?>
+        <form method="POST">
+            <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
+            <select class="aboutMeDropdown" name="selectAboutMeText">
                 <?php
-                if (isset($editId)) {
-                    echo '<input type="hidden" value=' . $editId . ' name="editId">';
-                    }
-                echo $displaySubmitEditButton;
-                echo $editSuccessMessage;
+                echo $displayAboutMeDropdown;
                 ?>
-    </form>
-    <form method="POST">
-        <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
-        <select class="aboutMeDropdown" name="deleteAboutMeText">
-            <?php
-            echo $displayAboutMeDropdown;
-            ?>
-        </select>
-        <input type="submit" value="Delete">
-    </form>
+            </select>
+            <input type="submit" value="select text">
+        </form>
+        <form method="POST" action="" id="editAboutMeTextAndQuote">
+                <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
     <?php
-    if(isset($deleteSuccessMessage)) {
-        echo $deleteSuccessMessage;
-    }
-    ?>
-</section>
-<footer>
-    <ul>
-        <li><h2><a href='index.php'>Home</h2></li></a>
-    </ul>
+                if (isset($displayAboutTextToEdit)) {
+                    echo $displayAboutTextToEdit;
+                }?></textarea>
+                    <?php
+                    if (isset($editId)) {
+                        echo '<input type="hidden" value=' . $editId . ' name="editId">';
+                        }
+                    if (isset($displaySubmitEditButton)) {
+                        echo $displaySubmitEditButton;
+                    }
+                    if (isset($editSuccessMessage)) {
+                        echo $editSuccessMessage;
+                    }
+                    ?>
+        </form>
+        <form method="POST">
+            <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
+            <select class="aboutMeDropdown" name="deleteAboutMeText">
+                <?php
+                echo $displayAboutMeDropdown;
+                ?>
+            </select>
+            <input type="submit" value="Delete">
+        </form>
+        <?php
+        if(isset($deleteSuccessMessage)) {
+            echo $deleteSuccessMessage;
+        }
+        ?>
+    </section>
+    <footer>
+        <ul>
+            <li><h2><a href='index.php'>Home</h2></li></a>
+        </ul>
 </footer>
 </body>
 </html>

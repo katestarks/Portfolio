@@ -2,7 +2,7 @@
 require_once "php/dbConnection.php";
 require_once "php/functions.php";
 
-$db = getdbConnection();
+$db = getDbConnection();
 $aboutMeText = getAboutMeText($db);
 $displayAboutMeText = displayAboutMeText($aboutMeText);
 $aboutMeQuote = getAboutMeQuote($db);

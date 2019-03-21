@@ -1,13 +1,11 @@
 <?php
 
-require_once "dbConnection.php";
-
 /**
  * Retrieves content from the database excluding line 1
  *
  * @param PDO $db database of about me text
  *
- * returns an array of content field excluding the first line of the database
+ * @return array of content field excluding the first line of the database
  */
 function getAboutMeText(PDO $db) : array {
     $query = $db->prepare("SELECT `id`,`content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1,50");
@@ -20,7 +18,7 @@ function getAboutMeText(PDO $db) : array {
  *
  * @param array $aboutMeTexts result of function to get the about me text (excl line 1) assigned to a variable
  *
- * returns string of the array items concatenated with html
+ * @return string of the array items concatenated with html
  */
 function displayAboutMeText(array $aboutMeTexts) : string {
     $result = "";
@@ -39,7 +37,7 @@ function displayAboutMeText(array $aboutMeTexts) : string {
  *
  * @param PDO $db database of about me text
  *
- * returns an array of content field limited to the first line of the database
+ * @return array of content field limited to the first line of the database
  */
 function getAboutMeQuote(PDO $db) : array {
     $query = $db->prepare("SELECT `id`,`content` FROM `about_me` WHERE `deleted` = 0 LIMIT 1");
@@ -52,7 +50,7 @@ function getAboutMeQuote(PDO $db) : array {
  *
  * @param array $aboutMeTexts result of function to get the about me text (limited to line 1) assigned to a variable
  *
- * returns string of the array items concatenated with html
+ * @return string of the array items concatenated with html
  */
 function displayAboutMeQuote(array $aboutMeQuotes) : string {
     $result="";
@@ -198,15 +196,11 @@ function displayAboutTextToEdit(array $aboutTextToEdit) : string {
  *
  * @return bool updates the database with edited content based on id
  */
-function updateAboutMeQuoteAndText(PDO $db, bool $checkEditText, string $submitEditText, string $editId) :bool {
-    if ($checkEditText === false) {
-        $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
-        $query->bindParam(':submitEditText', $submitEditText);
-        $query->bindParam(':id', $editId);
-        return $query->execute();
-    } else {
-        return false;
-    }
+function updateAboutMeQuoteAndText(PDO $db, string $submitEditText, string $editId) :bool {
+    $query = $db->prepare("UPDATE `about_me` SET `content` = :submitEditText WHERE `id` = :id;");
+    $query->bindParam(':submitEditText', $submitEditText);
+    $query->bindParam(':id', $editId);
+    return $query->execute();
 }
 
 /**
