@@ -6,9 +6,30 @@ $db = getdbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
-    $newAboutMeText = addAboutMeText($db, $addAboutMeText);
+    $cleanAboutMeText = removeWhitespace($addAboutMeText);
+    $checkAddMeText = checkTextExists($cleanAboutMeText);
+    $newAboutMeText = addAboutMeText($db, $checkAddMeText, $cleanAboutMeText);
+    $addAboutMeSuccess = addAboutMeSuccess($newAboutMeText);
 }
 
+$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
+$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
+
+if(isset($_POST['selectAboutMeText'])) {
+    $editId = $_POST['selectAboutMeText'];
+    $aboutTextToEdit = getAboutTextToEdit($db, $editId);
+    $displayAboutTextToEdit = displayAboutTextToEdit($aboutTextToEdit);
+    $displaySubmitEditButton = displaySubmitEditButton();
+}
+
+if(isset($_POST['editAboutMeTextAndQuote'])) {
+    $submitEditText = $_POST['editAboutMeTextAndQuote'];
+    $cleanEditText = removeWhitespace($submitEditText);
+    $checkEditText = checkTextExists($cleanEditText);
+    $editId = $_POST['editId'];
+    $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $checkEditText, $cleanEditText, $editId);
+    header('Location: cms_index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +49,34 @@ if (isset($_POST['addAboutMeText'])) {
         <textarea class="typeText" name="addAboutMeText" form="addAboutMeText"></textarea>
         <input type="submit" value="Add text">
     </form>
-    <form method="post">
-        <label for="selectAboutMeText"><h4>Edit text:</h4></label>
+    <?php
+    if (isset($addAboutMeSuccess)) {
+        echo $addAboutMeSuccess;
+    }
+    ?>
+    <form method="POST">
+        <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
-
+            <?php
+            echo $displayEditAboutMeDropdown;
+            ?>
         </select>
         <input type="submit" value="select text">
     </form>
-    <form method="post">
-            <textarea class="typeText" name="editAboutMeText" form="editAboutMeText">
-
-            </textarea>
-        <input type="submit" value="Edit text">
+    <form method="POST" action="" id="editAboutMeTextAndQuote">
+            <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
+<?php
+            if (isset($displayAboutTextToEdit)) {
+                echo $displayAboutTextToEdit;
+            }?></textarea>
+                <?php
+                if (isset($editId)) {
+                    echo '<input type="hidden" value=' . $editId . ' name="editId">';
+                    }
+                echo $displaySubmitEditButton;
+                ?>
     </form>
-    <form method="post">
+    <form method="POST">
         <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
         <select class="aboutMeDropdown" name="deleteAboutMeText">
 
