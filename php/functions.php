@@ -227,7 +227,7 @@ function displaySubmitEditButton() :string {
 
  * @return bool returns a boolean depending on whether the database has been successfully updated
  */
-function deleteAboutMeText($db, $deleteAboutMePara) {
+function deleteAboutMeText($db, $deleteAboutMePara) : bool {
    $query = $db->prepare("UPDATE `about_me` SET `deleted` = 1 WHERE `id` = :deleteAboutMePara;");
    $query->bindParam(':deleteAboutMePara', $deleteAboutMePara);
    return $query->execute();
