@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['loggedIn'])) {
+    header('Location: login_page.php');
+}
+
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
