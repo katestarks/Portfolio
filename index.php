@@ -27,6 +27,7 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
         <div><a href="#about"><img class="heroArrow" src="IMG/heroArrow.png"></a></div>
     </main>
     <nav>
+        <a href="login_page.php"><img class="loginIcon" src="IMG/loginIcon.jpg"></a>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
