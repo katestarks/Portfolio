@@ -73,8 +73,7 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
             <input type="submit" value="select text">
         </form>
         <form method="POST" action="" id="editAboutMeTextAndQuote">
-                <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote">
-    <?php
+                <textarea class="typeText" name="editAboutMeTextAndQuote" form="editAboutMeTextAndQuote"><?php
                 if (isset($displayAboutTextToEdit)) {
                     echo $displayAboutTextToEdit;
                 }?></textarea>
@@ -88,8 +87,7 @@ $displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
                     if (isset($editSuccessMessage)) {
                         echo $editSuccessMessage;
                     }
-                    ?>
-        </form>
+                    ?></form>
         <form method="POST">
             <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
             <select class="aboutMeDropdown" name="deleteAboutMeText">
