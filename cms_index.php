@@ -2,14 +2,21 @@
 
 session_start();
 
-if (isset($_SESSION['loggedIn'])) {
-    header('Location: login_page.php');
-}
-
 require_once 'php/dbConnection.php';
 require_once 'php/functions.php';
 
 $db = getDbConnection();
+$logInCredentials = fetchCredentials($db);
+$dbUsername = $logInCredentials['username'];
+$dbPassword = $logInCredentials['password'];
+$isPasswordCorrect = password_verify($_POST['password'], $dbPassword);
+
+if ($_POST['username'] === $dbUsername && $isPasswordCorrect === true || $_SESSION['loggedIn'] == true) {
+    $_SESSION['loggedIn'] = true;
+} else {
+    $_SESSION['loggedIn'] = false;
+    header('Location: login_page.php');
+}
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
