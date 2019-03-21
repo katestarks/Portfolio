@@ -106,27 +106,27 @@ class StackTest extends Testcase
         aboutMeSuccess($input);
     }
 
-    public function testEditAboutMeTextAndQuoteSuccess()
+    public function testAboutMeTextDropdownSuccess()
     {
         $expected = "<option value=1>test data</option>";
         $input = [['id'=>1, 'content'=>'test data']];
-        $case = editAboutMeTextAndQuote($input);
+        $case = AboutMeTextDropdown($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testEditAboutMeTextAndQuoteFailure()
+    public function testAboutMeTextDropdownFailure()
     {
         $expected = '<option value=></option>';
         $input = [['thing'=>'words']];
-        $case = editAboutMeTextAndQuote($input);
+        $case = AboutMeTextDropdown($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testEditAboutMeTextAndQuoteMalform()
+    public function testAboutMeTextDropdownMalform()
     {
         $input = 'string';
         $this->expectException(TypeError::class);
-        editAboutMeTextAndQuote($input);
+        AboutMeTextDropdown($input);
     }
 
     public function testDisplayAboutTextToEditSuccess()

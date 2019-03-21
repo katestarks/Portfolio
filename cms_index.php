@@ -28,8 +28,15 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
     $editSuccessMessage = aboutMeSuccess($updateAboutMeQuoteAndText);
 }
 
+if(isset($_POST['deleteAboutMeText'])) {
+    $deleteAboutMePara = $_POST['deleteAboutMeText'];
+    $aboutMeTextDeleted = deleteAboutMeText($db, $deleteAboutMePara);
+}
+
 $aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
-$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
+$displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +65,7 @@ $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
         <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
             <?php
-            echo $displayEditAboutMeDropdown;
+            echo $displayAboutMeDropdown;
             ?>
         </select>
         <input type="submit" value="select text">
@@ -80,7 +87,9 @@ $displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
     <form method="POST">
         <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
         <select class="aboutMeDropdown" name="deleteAboutMeText">
-
+            <?php
+            echo $displayAboutMeDropdown;
+            ?>
         </select>
         <input type="submit" value="Delete">
     </form>

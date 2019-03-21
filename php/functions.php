@@ -147,7 +147,7 @@ function getAboutMeTextAndQuote (PDO $db) : array {
  *
  * @return string of options for the edit text dropdown
  */
-function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
+function aboutMeTextDropdown (array $aboutMeTextAndQuotes) : string {
     $dropdown = "";
     foreach ($aboutMeTextAndQuotes as $aboutMeTextAndQuote) {
         $shortAboutMe = substr($aboutMeTextAndQuote['content'], 0, 50);
@@ -216,5 +216,11 @@ function updateAboutMeQuoteAndText(PDO $db, bool $checkEditText, string $submitE
  */
 function displaySubmitEditButton() :string {
     return '<input type="submit" value="Edit text">';
+}
+
+function deleteAboutMeText($db, $deleteAboutMePara) {
+   $query = $db->prepare("UPDATE `about_me` SET `deleted` = 1 WHERE `id` = :deleteAboutMePara;");
+   $query->bindParam(':deleteAboutMePara', $deleteAboutMePara);
+   return $query->execute();
 }
 ?>
