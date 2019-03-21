@@ -19,7 +19,7 @@ if ($_POST['username'] === $dbUsername && $isPasswordCorrect === true || $_SESSI
     $_SESSION['loggedIn'] = true;
 } else {
     $_SESSION['loggedIn'] = false;
-    header('Location: login_page.php');
+    header('Location: index.php');
 }
 
 if (isset($_POST['addAboutMeText'])) {

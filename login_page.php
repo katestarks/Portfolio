@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if ($_SESSION['loggedIn'] == true) {
+    header('Location: cms_index.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +19,9 @@ session_start();
 <h1>Log in to Manage Content for Kate's Portfolio Page</h1>
     <form method="POST" action="cms_index.php">
         <label for="username"><h4>Username:</h4></label>
-        <input type = "text" class="typeText" name="username">
+        <input type="text" class="typeText" name="username">
         <label for="password"><h4>Password:</h4></label>
-        <input type = "text" class="typeText" name="password">
+        <input type="password" class="typeText" name="password">
         <input type="submit" value="Submit">
     </form>
 <footer>
