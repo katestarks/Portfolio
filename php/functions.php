@@ -72,9 +72,9 @@ function displayAboutMeQuote(array $aboutMeQuotes) : string {
  *
  * @return string content from add input with white space removed at start and end
  */
-function removeWhitespace(string $AboutMeText) :string {
-    trim($AboutMeText);
-    return $newAboutMeText = htmlspecialchars($AboutMeText);
+function removeWhitespaceHTML(string $AboutMeText) :string {
+    $removeWhitespace = trim($AboutMeText);
+    return $newAboutMeText = htmlspecialchars($removeWhitespace);
 }
 
 /**
@@ -119,7 +119,7 @@ function addAboutMeText(PDO $db, bool $checkAddMeText, string $addAboutMeText) :
  *
  * @return string display message to say whether the add text has been added to the database
  */
-function addAboutMeSuccess(bool $newAboutMeText) : string {
+function aboutMeSuccess(bool $newAboutMeText) : string {
     if ($newAboutMeText === false) {
         return "<p>Please add content of up to 400 characters</p>";
     } else {
@@ -147,7 +147,7 @@ function getAboutMeTextAndQuote (PDO $db) : array {
  *
  * @return string of options for the edit text dropdown
  */
-function editAboutMeTextAndQuote (array $aboutMeTextAndQuotes) : string {
+function aboutMeTextDropdown (array $aboutMeTextAndQuotes) : string {
     $dropdown = "";
     foreach ($aboutMeTextAndQuotes as $aboutMeTextAndQuote) {
         $shortAboutMe = substr($aboutMeTextAndQuote['content'], 0, 50);
@@ -216,5 +216,35 @@ function updateAboutMeQuoteAndText(PDO $db, bool $checkEditText, string $submitE
  */
 function displaySubmitEditButton() :string {
     return '<input type="submit" value="Edit text">';
+}
+
+
+/**
+ * Updates column in database to 'turn on' deleted with a 1
+ *
+ * @param PDO $db database connection
+ * @param string $deleteAboutMePara variable with POST data from form assigned which is id of row from database
+
+ * @return bool returns a boolean depending on whether the database has been successfully updated
+ */
+function deleteAboutMeText($db, $deleteAboutMePara) : bool {
+   $query = $db->prepare("UPDATE `about_me` SET `deleted` = 1 WHERE `id` = :deleteAboutMePara;");
+   $query->bindParam(':deleteAboutMePara', $deleteAboutMePara);
+   return $query->execute();
+}
+
+/**
+ * Displays a success message depending on whether the add me text has gone to database
+ *
+ * @param bool $aboutMeTextDeleted outcome of updating the database
+ *
+ * @return string display message to say whether the 'delete has been successful'
+ */
+function deleteAboutMeSuccess(bool $aboutMeTextDeleted) : string {
+    if ($aboutMeTextDeleted === false) {
+        return "<p>The content has been deleted</p>";
+    } else {
+        return "<p>The paragraph has been deleted</p>";
+    }
 }
 ?>

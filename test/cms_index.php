@@ -52,11 +52,11 @@ class StackTest extends Testcase
         displayAboutMeQuote($input);
     }
 
-    public function testRemoveWhitespaceSuccess()
+    public function testRemoveWhitespaceHTMLSuccess()
     {
         $expected = "string";
         $input = "  string  ";
-        $case = removeWhitespace($input);
+        $case = removeWhitespaceHTML($input);
         $this->assertEquals($expected, $case);
     }
 
@@ -83,56 +83,56 @@ class StackTest extends Testcase
         CheckTextExists($input);
     }
 
-    public function testAddAboutMeSuccessFalse()
+    public function testAboutMeSuccessFalse()
     {
         $expected = "<p>Please add content of up to 400 characters</p>";
         $input = false;
-        $case = AddAboutMeSuccess($input);
+        $case = aboutMeSuccess($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testAddAboutMeSuccessTrue()
+    public function testAboutMeSuccessTrue()
     {
         $expected = "<p>Your text has been added</p>";
         $input = true;
-        $case = AddAboutMeSuccess($input);
+        $case = aboutMeSuccess($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testAddAboutMeSuccessMalform()
+    public function testAboutMeSuccessMalform()
     {
         $input = ['thing'];
         $this->expectException(TypeError::class);
-        addAboutMeSuccess($input);
+        aboutMeSuccess($input);
     }
 
-    public function testEditAboutMeTextAndQuoteSuccess()
+    public function testAboutMeTextDropdownSuccess()
     {
         $expected = "<option value=1>test data</option>";
         $input = [['id'=>1, 'content'=>'test data']];
-        $case = editAboutMeTextAndQuote($input);
+        $case = AboutMeTextDropdown($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testEditAboutMeTextAndQuoteFailure()
+    public function testAboutMeTextDropdownFailure()
     {
         $expected = '<option value=></option>';
         $input = [['thing'=>'words']];
-        $case = editAboutMeTextAndQuote($input);
+        $case = AboutMeTextDropdown($input);
         $this->assertEquals($expected, $case);
     }
 
-    public function testEditAboutMeTextAndQuoteMalform()
+    public function testAboutMeTextDropdownMalform()
     {
         $input = 'string';
         $this->expectException(TypeError::class);
-        editAboutMeTextAndQuote($input);
+        AboutMeTextDropdown($input);
     }
 
     public function testDisplayAboutTextToEditSuccess()
     {
         $expected = 'test data';
-        $input = [['id'=>1, 'content'=>'test data']];
+        $input = ['content'=>'test data'];
         $case = displayAboutTextToEdit($input);
         $this->assertEquals($expected, $case);
     }
@@ -158,5 +158,28 @@ class StackTest extends Testcase
         $case = displaySubmitEditButton();
         $this->assertEquals($expected, $case);
     }
+
+        public function testDeleteAboutMeSuccessFalse()
+    {
+        $expected = "<p>The content has been deleted</p>";
+        $input = false;
+        $case = deleteAboutMeSuccess($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testDeleteAboutMeSuccessTrue()
+    {
+        $expected = "<p>The paragraph has been deleted</p>";
+        $input = true;
+        $case = deleteAboutMeSuccess($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testdeleteAboutMeSuccessMalform()
+    {
+        $input = ['thing'];
+        $this->expectException(TypeError::class);
+        deleteAboutMeSuccess($input);
+    }
 }
-    ?>
+?>

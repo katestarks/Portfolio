@@ -6,14 +6,11 @@ $db = getdbConnection();
 
 if (isset($_POST['addAboutMeText'])) {
     $addAboutMeText = $_POST['addAboutMeText'];
-    $cleanAboutMeText = removeWhitespace($addAboutMeText);
+    $cleanAboutMeText = removeWhitespaceHTML($addAboutMeText);
     $checkAddMeText = checkTextExists($cleanAboutMeText);
     $newAboutMeText = addAboutMeText($db, $checkAddMeText, $cleanAboutMeText);
-    $addAboutMeSuccess = addAboutMeSuccess($newAboutMeText);
+    $addAboutMeSuccess = aboutMeSuccess($newAboutMeText);
 }
-
-$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
-$displayEditAboutMeDropdown = editAboutMeTextAndQuote($aboutMeTextAndQuote);
 
 if(isset($_POST['selectAboutMeText'])) {
     $editId = $_POST['selectAboutMeText'];
@@ -24,12 +21,23 @@ if(isset($_POST['selectAboutMeText'])) {
 
 if(isset($_POST['editAboutMeTextAndQuote'])) {
     $submitEditText = $_POST['editAboutMeTextAndQuote'];
-    $cleanEditText = removeWhitespace($submitEditText);
+    $cleanEditText = removeWhitespaceHTML($submitEditText);
     $checkEditText = checkTextExists($cleanEditText);
     $editId = $_POST['editId'];
     $updateAboutMeQuoteAndText = updateAboutMeQuoteAndText($db, $checkEditText, $cleanEditText, $editId);
-    header('Location: cms_index.php');
+    $editSuccessMessage = aboutMeSuccess($updateAboutMeQuoteAndText);
 }
+
+if(isset($_POST['deleteAboutMeText'])) {
+    $deleteAboutMePara = $_POST['deleteAboutMeText'];
+    $aboutMeTextDeleted = deleteAboutMeText($db, $deleteAboutMePara);
+    $deleteSuccessMessage = deleteAboutMeSuccess($aboutMeTextDeleted);
+}
+
+$aboutMeTextAndQuote = getAboutMeTextAndQuote($db);
+$displayAboutMeDropdown = aboutMeTextDropdown($aboutMeTextAndQuote);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +66,7 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
         <label for="selectAboutMeText"><h4>Edit text or quote:</h4></label>
         <select class="aboutMeDropdown" name="selectAboutMeText">
             <?php
-            echo $displayEditAboutMeDropdown;
+            echo $displayAboutMeDropdown;
             ?>
         </select>
         <input type="submit" value="select text">
@@ -74,15 +82,23 @@ if(isset($_POST['editAboutMeTextAndQuote'])) {
                     echo '<input type="hidden" value=' . $editId . ' name="editId">';
                     }
                 echo $displaySubmitEditButton;
+                echo $editSuccessMessage;
                 ?>
     </form>
     <form method="POST">
         <label for="deleteAboutMeText"><h4>Select about me text to delete:</h4></label>
         <select class="aboutMeDropdown" name="deleteAboutMeText">
-
+            <?php
+            echo $displayAboutMeDropdown;
+            ?>
         </select>
         <input type="submit" value="Delete">
     </form>
+    <?php
+    if(isset($deleteSuccessMessage)) {
+        echo $deleteSuccessMessage;
+    }
+    ?>
 </section>
 <footer>
     <ul>
