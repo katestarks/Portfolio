@@ -12,7 +12,7 @@ session_start();
 </head>
 <body>
 <h1>Log in to Manage Content for Kate's Portfolio Page</h1>
-    <form method="POST" action="php/login_verification.php">
+    <form method="POST" action="cms_index.php">
         <label for="username"><h4>Username:</h4></label>
         <input type = "text" class="typeText" name="username">
         <label for="password"><h4>Password:</h4></label>
