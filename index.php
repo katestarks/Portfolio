@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+require_once "php/dbConnection.php";
+require_once "php/functions.php";
+
+$db = getDbConnection();
+$aboutMeText = getAboutMeText($db);
+$displayAboutMeText = displayAboutMeText($aboutMeText);
+$aboutMeQuote = getAboutMeQuote($db);
+$displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +32,7 @@
         </div>
     </main>
     <nav>
+        <a href="login_page.php"><img class="cmsIcon" src="IMG/loginIcon.jpg" alt="small dog, link to admin login"></a>
         <ul>
             <li class="aboutNav"><h1><a href="#about">About</a></h1></li>
             <li class="projectsNav"><h1><a href="#projects">Projects</a></h1></li>
@@ -25,11 +40,13 @@
         </ul>
     </nav>
     <section id="about" class="about">
-        <img src="IMG/about_illustration.png" class="aboutImage" alt="Illustration of myself and my dog in silhouette">
+        <img src="IMG/about_illustration.svg" class="aboutImage" alt="Illustration of myself and my dog in silhouette">
         <div class="aboutContentLeft">
             <h1>" Welcome to my portfolio,</h1>
-            <p>Hi, I’m Kate, a full stack developer in training. Learning to code is a career change for me. I was looking for a tangible, vocational skill to complement the ‘soft’ skills I’ve picked up. Someone told me that once you know how to code, the only limit is your imagination.</p>
-            <p class="contentEmphasisLine">I was captivated by that idea and, now that I’m learning, I’m hooked on the process.<span class="contentQuote">"</span></p>
+            <?php
+            echo $displayAboutMeText;
+            echo $displayAboutMeQuote;
+            ?>
         </div>
         <div class="aboutContentRight">
             <h4 class="skillsListLineOne">Here are some other useful</h4>

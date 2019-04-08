@@ -53,6 +53,16 @@ nav ul {
 	font-weight: bold;
 }
 
+.cmsIcon {
+	height: 5%;
+	width: 5%;
+	opacity: 0;
+}
+
+.cmsIcon:hover {
+	opacity: 1;
+}
+
 nav a {
 	text-decoration: none;
 	color: #8F9194;
@@ -127,6 +137,8 @@ nav li::before {
 
 .contentEmphasisLine {
 	text-align: right;
+	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .about h4 {
@@ -163,6 +175,7 @@ nav li::before {
 .about li {
 	padding: 15px 0;
 	position: relative;
+	z-index: 1;
 }
 
 .about li::before {
@@ -193,12 +206,6 @@ nav li::before {
 
 .emotionalIntelligence::before {
 	width: 200px;
-}
-
-.contentQuote {
-	font-family: 'Nova Square', cursive;
-	font-size: 2rem;
-	font-weight: bold;
 }
 
 .projects {
