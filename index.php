@@ -17,28 +17,30 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
 <head>
     <title>Kate Starks</title>
     <link rel='stylesheet' type='text/css' href='css/normalize.css'/>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Square|Open+Sans" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='css/styles.css'/>
 </head>
 
 <body>
-    <main class="hero">
+    <main>
+        <div class="hero">
         <h1>Kate Starks {</h1>
         <p>Full Stack Developer</p>
         <p>Positive | Resilient | Motivated</p>
         <h1>}</h1>
-        <div><a href="#about"><img class="heroArrow" src="IMG/heroArrow.png"></a></div>
+        <a href="#about"><img class="heroArrow" src="IMG/heroArrow.png" alt="arrow to navigate down the site"></a>
+        </div>
     </main>
     <nav>
-        <a href="login_page.php"><img class="loginIcon" src="IMG/loginIcon.jpg" alt="small dog, link to admin login"></a>
+        <a href="login_page.php"><img class="cmsIcon" src="IMG/loginIcon.jpg" alt="small dog, link to admin login"></a>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact me</a></li>
+            <li class="aboutNav"><h1><a href="#about">About</a></h1></li>
+            <li class="projectsNav"><h1><a href="#projects">Projects</a></h1></li>
+            <li class="contactNav"><h1><a href="#contact">Contact me</a></h1></li>
         </ul>
-        <div class="navColor"></div>
     </nav>
     <section id="about" class="about">
+        <img src="IMG/about_illustration.svg" class="aboutImage" alt="Illustration of myself and my dog in silhouette">
         <div class="aboutContentLeft">
             <h1>" Welcome to my portfolio,</h1>
             <?php
@@ -47,13 +49,14 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
             ?>
         </div>
         <div class="aboutContentRight">
-            <h3>Here are some other useful skills I've learnt along the way:</h3>
+            <h4 class="skillsListLineOne">Here are some other useful</h4>
+            <h4>skills I've learnt along the way:</h4>
             <ul>
-                <li>Team working</li>
-                <li>Communication</li>
-                <li>Organisation</li>
-                <li>Influencing</li>
-                <li>Emotional intelligence</li>
+                <li class="teamWork">Team working</li>
+                <li class="communication">Communication</li>
+                <li class="organisation">Organisation</li>
+                <li class="influencing">Influencing</li>
+                <li class="emotionalIntelligence">Emotional intelligence</li>
             </ul>
         </div>
     </section>
