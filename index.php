@@ -27,7 +27,7 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
         <div class="hero">
         <h1>Kate Starks {</h1>
         <p>Full Stack Developer</p>
-        <p>Positive | Resilient | Motivated</p>
+        <p id="heroPersonalAttr"></p>
         <h1>}</h1>
         <a href="#about"><img class="heroArrow" src="IMG/heroArrow.png" alt="arrow to navigate down the site"></a>
         </div>
