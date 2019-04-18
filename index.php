@@ -19,6 +19,7 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
     <link rel='stylesheet' type='text/css' href='css/normalize.css'/>
     <link href="https://fonts.googleapis.com/css?family=Nova+Square|Open+Sans" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='css/styles.css'/>
+    <script src="javascript/index.js" defer></script>
 </head>
 
 <body>
