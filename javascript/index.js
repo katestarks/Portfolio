@@ -1,12 +1,11 @@
 console.log('hello')
 var i = 0
-var text = 'Positive | Resilient | Motivated'
 var speed = 50
 var pTag = document.getElementById('heroPersonalAttr')
 function typewriter () {
-
-    if(i < text.length) {
-        pTag.innerHTML += text.charAt(i)
+    var lineOne = 'Positive | Resilient | Motivated'
+    if(i < lineOne.length) {
+        pTag.innerHTML += lineOne.charAt(i)
         i++
         setTimeout(typewriter, speed)
     }
