@@ -1,7 +1,8 @@
-console.log('hello')
+
 var i = 0
 var speed = 50
 var pTag = document.getElementById('heroPersonalAttr')
+
 function typewriter () {
     var lineOne = 'Positive | Resilient | Motivated'
     if(i < lineOne.length) {
