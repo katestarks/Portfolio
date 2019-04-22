@@ -1,7 +1,8 @@
-
+console.log('hello')
 var i = 0
 var speed = 50
 var pTag = document.getElementById('heroPersonalAttr')
+
 
 function printlineOne () {
     var lineOne = 'Positive | Resilient | Motivated'
@@ -17,14 +18,9 @@ function resetTypewriter () {
     if (i > 0) {
         i = 0
     }
-
-}
-
-function typewriter () {
-    resetTypewriter()
     printlineOne()
 }
 
 printlineOne()
 
-setInterval(typewriter, 3000)
+setInterval(resetTypewriter, 3000)
