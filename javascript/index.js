@@ -17,9 +17,14 @@ function resetTypewriter () {
     if (i > 0) {
         i = 0
     }
+
+}
+
+function typewriter () {
+    resetTypewriter()
     printlineOne()
 }
 
 printlineOne()
 
-setInterval(resetTypewriter, 3000)
+setInterval(typewriter, 3000)
