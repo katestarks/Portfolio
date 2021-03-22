@@ -1,3 +1,7 @@
 .DS_Store
 .idea/
 php/dbConnection.php
+
+# Exclude data contents, but keep folder
+data/*
+!data/.gitkeep
