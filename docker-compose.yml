@@ -30,7 +30,5 @@ services:
         - DB_PORT="3306"  # this should always be 3306, the container port, as it will connect on a local network
       volumes:
         - ./website:/var/www/html
-      links: 
-        - mysql
       ports:
         - "8080:80"
