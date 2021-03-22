@@ -1,0 +1,36 @@
+version: '3'
+services:
+    mysql:
+        image: mysql:5.6
+        environment:
+          # these are expected by the container image
+          - MYSQL_ROOT_PASSWORD=p4ssw0rd
+          - MYSQL_DATABASE=kate_portfolio
+        volumes:
+          - ./db/kate_portfolio.sql:/docker-entrypoint-initdb.d/kate_portfolio.sql
+          - ./data:/var/lib/mysql
+        ports:
+          #format is "localport:containerport"
+          # feel free to change the localport to anything you wish,
+          # just remember what you set it to when you connect
+          - "3306:3306"
+    portfolio:
+      build: ./website
+      container_name: "portfolio"
+      # hostname: "portfolio"
+      depends_on:
+        # this ensures that mysql starts before this container
+        - mysql
+      environment:
+        # these environment variables will be available inside your container
+        - DB_USERNAME="root"
+        - DB_PASSWORD="p4ssw0rd"
+        - DB_HOST="mysql"
+        - DB_NAME="kate_portfolio"
+        - DB_PORT="3306"  # this should always be 3306, the container port, as it will connect on a local network
+      volumes:
+        - ./website:/var/www/html
+      links: 
+        - mysql
+      ports:
+        - "8080:80"
