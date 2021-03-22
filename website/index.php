@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once "./php/dbConnection.php";
-require_once "./php/functions.php";
+require_once "php/dbConnection.php";
+require_once "php/functions.php";
 
 $db = getDbConnection();
 $aboutMeText = getAboutMeText($db);
