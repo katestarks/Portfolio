@@ -53,16 +53,6 @@ nav ul {
 	font-weight: bold;
 }
 
-.cmsIcon {
-	height: 5%;
-	width: 5%;
-	opacity: 0;
-}
-
-.cmsIcon:hover {
-	opacity: 1;
-}
-
 nav a {
 	text-decoration: none;
 	color: #8F9194;
@@ -137,8 +127,6 @@ nav li::before {
 
 .contentEmphasisLine {
 	text-align: right;
-	font-size: 1.25rem;
-	font-weight: bold;
 }
 
 .about h4 {
@@ -230,7 +218,7 @@ nav li::before {
 }
 
 .projects div:hover .cover {
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(255,255,255,0.9);
 	display: block;
 	float: left;
 	margin: 0 auto;
@@ -245,27 +233,27 @@ nav li::before {
 }
 
 .project1 {
-	background-image: url("../IMG/Pilotshop.png");
+	background-image: url("../IMG/topDog.png");
 }
 
 .project2 {
-	background-image: url("../IMG/MaydenAcademyLogo.jpg");
+	background-image: url("../IMG/Pilotshop.png");
 }
 
 .project3 {
-	background-image: url("../IMG/comingSoon.jpg");
+	background-image: url("../IMG/toDoApp.png");
 }
 
 .project4 {
-	background-image: url("../IMG/comingSoon.jpg");
+	background-image: url("../IMG/contentManagementSystem.png");
 }
 
 .project5 {
-	background-image: url("../IMG/comingSoon.jpg");
+	background-image: url("../IMG/paintmaster.png");
 }
 
 .project6 {
-	background-image: url("../IMG/comingSoon.jpg");
+	background-image: url("../IMG/MaydenAcademyLogo.jpg");
 }
 
 .contactMe {
@@ -296,6 +284,11 @@ nav li::before {
 footer {
 	height: 50px;
 	background-color: #5AC4F9;
+	padding: 5px;
+}
+
+.cmsIcon {
+	height: 80%;
 }
 
 @media screen and (max-width: 960px) {

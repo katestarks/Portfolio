@@ -38,15 +38,8 @@ LOCK TABLES `about_me` WRITE;
 INSERT INTO `about_me` (`id`, `content`, `deleted`)
 VALUES
 	(1,'Someone told me that once you know how to code, the only limit is your imagination; I was captivated by that idea. Now that I\'m learning, I\'m hooked on the process.',0),
-	(2,'Hi, I\'m Kate, a full stack developer in training. Learning to code is a career change for me. I was looking for a tangible, vocational skill to complement the \'soft\' skills I\'ve picked up. ',0),
-	(10,'stuff  to edit and the stuff is edited',1),
-	(11,'Content editing with extra things',1),
-	(40,'More added text and edited on Thurs',1),
-	(41,'Thursday things with more things',1),
-	(42,'&lt;remove',1),
-	(43,'More text to edit which has been edited',0),
-	(44,'Add more text on',0);
-
+	(2,'Hi, I\'m Kate, a full stack developer in training. Learning to code is a career change for me. I was looking for a tangible, vocational skill to complement the \'soft\' skills I\'ve picked up. ',0);
+	
 /*!40000 ALTER TABLE `about_me` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -66,57 +66,57 @@ $displayAboutMeQuote = displayAboutMeQuote($aboutMeQuote);
         <div class="project1">
             <div class="cover">
                 <h1>Top Dog PHP App</h1>
-                <a href="http://bit.ly/topdog-nmr" target="_blank"><h1>view here</h1></a>
-                <a href="https://github.com/Mayden-Academy/2019-nmr-TopDog" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <!-- <a href="http://bit.ly/topdog-nmr" target="_blank"><h1>view here</h1></a> -->
+                <a href="https://github.com/Mayden-Academy/2019-nmr-TopDog" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
         <div class="project2">
             <div class="cover">
                 <h1>Responsive web page</h1>
-                <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/PilotShop/" target="_blank"><h1>view here</h1></a>
-                <a href="https://github.com/katestarks/PilotShop" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <!-- <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/PilotShop/" target="_blank"><h1>view here</h1></a> -->
+                <a href="https://github.com/katestarks/PilotShop" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
         <div class="project3">
             <div class="cover">
                 <h1>Task Organisation PHP App</h1>
-                <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/toDoApp/public/" target="_blank"><h1>view here</h1></a>
-                <a href="https://github.com/katestarks/toDoList" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <!-- <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/toDoApp/public/" target="_blank"><h1>view here</h1></a> -->
+                <a href="https://github.com/katestarks/toDoList" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
         <div class="project4">
             <div class="cover">
                 <h1>Content Management System</h1>
 <!--                <a href="" target="_blank"><h1>view here</h1></a>-->
-                <a href="https://github.com/katestarks/Portfolio" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <a href="https://github.com/katestarks/Portfolio" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
         <div class="project5">
             <div class="cover">
                 <h1>JavaScript Paint App</h1>
-                <a href="http://dev.maydenacademy.co.uk/projects/2019Feb/2019-paint-app/" target="_blank"><h1>view here</h1></a>
-                <a href="https://github.com/Mayden-Academy/2019-paint-app" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <!-- <a href="http://dev.maydenacademy.co.uk/projects/2019Feb/2019-paint-app/" target="_blank"><h1>view here</h1></a> -->
+                <a href="https://github.com/Mayden-Academy/2019-paint-app" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
         <div class="project6">
             <div class="cover">
                 <h1>Logo created entirely in CSS</h1>
-                <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/MaydenAcademyLogo/" target="_blank"><h1>view here</h1></a>
-                <a href="https://github.com/katestarks/AcademyLogo" target="_blank"><img src="IMG/GithubLogo.svg"></a>
+                <!-- <a href="http://dev.maydenacademy.co.uk/students/2019/feb/kate/MaydenAcademyLogo/" target="_blank"><h1>view here</h1></a> -->
+                <a href="https://github.com/katestarks/AcademyLogo" target="_blank"><img src="IMG/githubLogo.svg"></a>
             </div>
         </div>
     </section>
     <section id="contact" class="contactMe">
         <h1>Get in touch in the usual ways:</h1>
         <div>
-            <a href="mailto:kfstarks@gmail.com"><img src="IMG/envelope.png" alt = "Envelope icon"></a>
-            <a href="tel:07962-071468"><img src="IMG/phone.png" alt = "Telephone icon"></a>
-            <a href="https://github.com/katestarks" target="_blank"><img src="IMG/GithubLogo.svg" alt = "Github icon"></a>
+            <a href="mailto:katestarks@me.com"><img src="IMG/envelope.png" alt = "Envelope icon"></a>
+            <a href="tel:07394-375190"><img src="IMG/phone.png" alt = "Telephone icon"></a>
+            <a href="https://github.com/katestarks" target="_blank"><img src="IMG/githubLogo.svg" alt = "Github icon"></a>
         </div>
         <div>
             <a href="https://www.linkedin.com/in/kate-starks/" target="_blank"><img src="IMG/linkedin.png" alt = "LinkedIn icon"></a>
             <a href="https://twitter.com/K8CodeandCoffee" target="_blank"><img src="IMG/twitter.png" alt = "Twitter icon"></a>
-            <a href="https://www.instagram.com/picnic_bath/" target="_blank"><img src="IMG/instagram.png" alt = "Instagram icon"></a>
+            <a href="https://www.instagram.com/kate.starks/" target="_blank"><img src="IMG/instagram.png" alt = "Instagram icon"></a>
         </div>
         <p>I'm also happy to help with student talks; careers sessions or other ways I can get involved in the Bath, UK area.</p>
         <p>As well as coding, my favourite topics include swapping travel stories, solving dog behaviour and training issues, comparing photography portfolios or talking about behavioural economics; all areas of amateur enthusiasm for me.</p>
